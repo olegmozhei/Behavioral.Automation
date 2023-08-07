@@ -28,4 +28,8 @@
         </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="TC#2.feature.cs" />
+    </ItemGroup>
+
 </Project>
