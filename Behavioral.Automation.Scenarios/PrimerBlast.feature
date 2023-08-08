@@ -52,9 +52,21 @@ Scenario: User can provides template accession number (DNA), provide primers and
     
 Scenario: User can provides template accession number (RNA) and run primers design
 	Given application URL is opened
-	And user entered "XR_001737872.1" into "Template" input
+	And user entered "NM_000018" into "Template" input
 	And "Perform specificity check" checkbox is unchecked
 	When user clicks on "Get primers" button
+	Then page title should become "Primer-Blast results"
+	And "Primers design" table should become visible
+	
+Scenario: User can provides template accession number (RNA), specify exon-exon junction attribute and run primers design
+	Given application URL is opened
+	And user entered "NM_000018" into "Template" input
+	And "Perform specificity check" checkbox is unchecked
+	When user opens "Exon Junction span" dropdown and selects "Primer must span an exon-exon junction" in dropdown menu
+	And user enters "10" into "Min Site overlap by five prime end" input
+	And user enters "3" into "Min Site overlap by three prime end" input
+	And user enters "5" into "Max Site overlap by three prime end" input
+	And user clicks on "Get primers" button
 	Then page title should become "Primer-Blast results"
 	And "Primers design" table should become visible
 	
