@@ -16,3 +16,4 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 
   Scenario: Another test (if user don't specify template than error shoud become visible)
     Given ".+?" checkbox is unchecked
+    Then ".*" table should become visible within ".*" seconds
