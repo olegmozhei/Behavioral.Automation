@@ -15,3 +15,4 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
     Then "Primers design" table should become visible
 
   Scenario: Another test (if user don't specify template than error shoud become visible)
+    Given ".+?" checkbox is unchecked
