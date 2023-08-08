@@ -128,4 +128,24 @@ Scenario: Primer design with valid sequence and invalid primers
 	And label "Error" should have "Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence." text
   
     		
-    
+Scenario: Primer design with valid sequence and invalid forward primer
+	Given application URL is opened
+	And "Perform specificity check" checkbox is unchecked
+	When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+	And user enters "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Forward primer" input
+	And user enters "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Reverse primer" input
+	And user clicks on "Get primers" button	
+	Then page title should become "Primer-Blast results"
+	And label "Error" should have "Specified left primer cannot be found in template...make sure this primer is on the plus strand of your template." text
+	
+Scenario: Primer design with valid sequence and invalid reverse primer
+	Given application URL is opened
+	And "Perform specificity check" checkbox is unchecked
+	When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+	And user enters "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Forward primer" input
+	And user enters "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Reverse primer" input
+	And user clicks on "Get primers" button	
+	Then page title should become "Primer-Blast results"
+	And label "Error" should have "Specified right primer cannot be found in template...make sure this primer is on the minus strand of your template." text
+
+Scenario: Primer design with valid position range
