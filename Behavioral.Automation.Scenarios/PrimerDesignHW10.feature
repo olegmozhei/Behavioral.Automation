@@ -97,3 +97,4 @@ Scenario: 10. User specify that primer must span an exon-exon junction
 	When user clicks on "Perform specificity check" checkbox
 	And user clicks on "Get primers" button
 	Then "Primers design" table should become visible
+	
