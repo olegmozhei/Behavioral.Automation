@@ -1,0 +1,133 @@
+﻿Feature: Primer designing tool
+wikipedia: https://en.wikipedia.org/wiki/Primer_(molecular_biology)
+DNA is constituted by 4 different types of nucleotides (A, C, T, G)
+PCR is a tool used to amplify small sequences of DNA.
+Primer is a short single-stranded nucleic acid used in the initiation of DNA synthesis.
+
+# Scenario to cover requirement 1
+
+  Scenario: 1. User can provide template as sequence and specify primers range  
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "500" into "Forward primer from" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible
+
+    
+# Scenarios to cover requirement 2
+    
+  Scenario: 2.1 User run primers design after providing template as sequence and specifying primers range  
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "1" into "Forward primer from" input
+    And user entered "200" into "Forward primer to" input
+    And user entered "900" into "Reverse primer from" input
+    And user entered "980" into "Reverse primer to" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible    
+     
+  Scenario: 2.2 User run primers design after providing template as .fasta file
+    Given application URL is opened
+    When user uploads "TestData/EGFR_DNA_sequence.fasta" after clicking on "Choose template file" button
+    And user clicks on "Perform specificity check" checkbox
+    And user clicks on "Get primers" button
+    Then "Primers design" table should become visible
+    
+  Scenario: 2.3 User run primers design after specifying primers sequence  
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "TTCATCAGCTAACGTAACAGTT" into "Forward primer" input
+    And user entered "TGTAGCGTTCAGGGGCTGTAGC" into "Reverse primer" input
+    And user opened "Database" dropdown and selected "Genomes for selected eukaryotic organisms (primary assembly only)" in dropdown menu
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible within "180" seconds       
+
+  Scenario: 2.3 User run primers design after specifying primers parameters  
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "50" into "Minimal size of PCR product" input
+    And user entered "200" into "Maximal size of PCR product" input
+    And user entered "20" into "Number of primers to return" input
+    And user entered "58" into "Minimal Melting Temperature of primers" input
+    And user entered "61" into "Optimal Melting Temperature of primers" input
+    And user entered "64" into "Maximal Melting Temperature of primers" input
+    And user entered "4" into "Maximal Melting Temperature difference" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible        
+ 
+    
+  # Scenarios to cover requirement 3
+       
+  Scenario: 3.1 User sees error notification after providing empty sequence input
+    Given application URL is opened
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then label "Error" should have "Exception error: No sequence input was provided ." text 
+       
+  Scenario: 3.2 User sees error notification after providing invalid sequence input
+    Given application URL is opened
+    And user entered "12345" into "Template" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then label "Error" should have "Exception error: GI/accession/sequence mismatch: nucleotide input required but protein provided ." text
+    
+  Scenario: 3.3 User sees error notification after providing shorter than specified sequence input
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCT" into "Template" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then label "Error" should become visible
+
+  Scenario: 3.4 User sees error notification after providing invalid primer range
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "200" into "Forward primer from" input
+    And user entered "1" into "Forward primer to" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then label "Error" should become visible    
+       
+  Scenario: 3.5 User sees error notification after providing invalid primer sequence
+    Given application URL is opened
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTA" into "Template" input
+    And user entered "CAGCTAACGTAACAGGGCT" into "Forward primer" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then label "Error" should become visible
+
+    
+  # Scenarios to cover requirement 4
+        
+  Scenario: 4. User can run primers design after providing DNA accession number and primers sequence
+    Given application URL is opened
+    And user entered "U49845" into "Template" input
+    And user entered "GCTTCCTAATATTCTGGAGA" into "Forward primer" input
+    And user entered "TGGGATGCGTCCGTGAATGT" into "Reverse primer" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible
+ 
+    
+  # Scenarios to cover requirement 5
+           
+  Scenario: 5.1 User can run primers design after providing RNA accession number and specifying exon-exon junction span as not needed
+    Given application URL is opened
+    And user entered "NM_201284.2" into "Template" input
+    And user opened "Exon Junction span" dropdown and selected "Primer may not span an exon-exon junction" in dropdown menu
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible
+
+  Scenario: 5.2 User can run primers design after providing RNA accession number and specifying exon-exon junction details
+    Given application URL is opened
+    And user entered "NM_201284.2" into "Template" input
+    And user opened "Exon Junction span" dropdown and selected "Primer must span an exon-exon junction" in dropdown menu
+    And user entered "8" into "Min Site overlap by five prime end" input
+    And user entered "5" into "Min Site overlap by three prime end" input
+    And user entered "10" into "Max Site overlap by three prime end" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible within "180" seconds 
