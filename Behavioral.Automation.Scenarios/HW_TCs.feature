@@ -37,6 +37,8 @@ Scenario: accession number (DNA)
 	And user enters "59" into "Optimal Melting Temperature of primers" input
 	And user enters "63" into "Maximal Melting Temperature of primers" input
 	And user enters "4" into "Maximal Melting Temperature difference" input
+	When user enters "70" into "Minimal size of PCR product" input
+	And user enters "2000" into "Maximal size of PCR product" input
 	When user clicks on "Get Primers" button
 	Then "Primers design" table should become visible
   		
