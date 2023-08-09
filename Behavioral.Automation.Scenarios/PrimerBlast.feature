@@ -137,6 +137,7 @@ Scenario: Primer design with valid sequence and primers
 	And user clicks on "Get primers" button	
 	Then page title should become "Primer-Blast results"
 	And "Primers design" table should become visible within "180" seconds
+	And "Primers design" table should become visible
 
 Scenario: Primer design with valid sequence and invalid primers
 	Given application URL is opened
@@ -180,4 +181,9 @@ Scenario: Primer design with valid primers position range
 	And user clicks on "Get primers" button
 	Then page title should become "Primer-Blast results"
 	And "Primers design" table should become visible
+<<<<<<< HEAD
 	
+=======
+	
+	
+>>>>>>> origin/my_homework
