@@ -7,7 +7,7 @@ Feature: Primer Blast
 Scenario: User can use the tool for primer design
     When user opens URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/"
     Then page title should become "Primer designing tool"
-    And "Get primers" button should become visible 
+    And "Get primers" button should become visible
 
 Scenario: User can run primers design
     Given application URL is opened
@@ -17,20 +17,21 @@ Scenario: User can run primers design
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible
 
-Scenario: User can run primers design (User does not specify any settings for finding primers)
+Scenario: User can provide DNA template and run primers design (User does not specify any settings for finding primers)
     Given application URL is opened
     And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTAGTCGTTTGCTTTCTCGAATTCCGAGCGATTAAGCGTGACAGTCCCAGCGAACCCACAAAACGTGATCGCAGTCCATGCGATCATACGCAAGAAGGAAGGTCCCCATACACCGACGCACCAGTTTACACGCCGTATGCATAAACGAGCTGCACAAACGAGAGTGCTTGAACTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAGTTGCCTTGCCTAGATGCAATGTCGGACGTATTACTTTTGCCTCAACGGCTCCTGCTTTCGCTGAAACCCAAGACAGGCAACAGTAACCGCCTTTTGAAGGCGAGTCCTTCGTCTGTGACTAACTGTGCCAAATCGTCTTCCAAACTCCTAATCCAGTTTAACTCACCAAATTATAGCCATACAGACCCTAATTTCATATCATATCACGCCATTAGCCTCTGCTAAAATTCTGTGCTCAAGGGTTTTGGTTCGCCCGAGTGATGTTGCCAATTAGGACCATCAAATGCACATGTTACAGGACTTCTTATAAATACTTTTTTCCTGGGGAGTAGCGGATCTTAATGGATGTTGCCAGCTGGTATGGAAGCTAATAGCGCCGGTGGGAGCGTAATCTGCCGTCTCCACCAACACAACGCTATCGGGTCATATTATAAGATTCCGCAATGGGGTTACTTATAGGTAGCCTTAACGATATCCGGAACTTGCGATGTACGTGCTATGCTTTAATACATACCTGGCCCAGTAGTTTTCCAATATGGGAACATCAATTGTACATCGGGCCGGGATAATCATGTCATCACGGAAGTAGCCGTAAGACAAATAATTCAAAAGAGATGTCGTTTTGCTAGTTCACGTGAAGGTGTCTCGCGCCACCTCTAAGTAAGTGGGCCGTCGAGACATTATCCCTGATTTTTTCACTACTATTAGTACTCACGGCGCAATACCACCACAGCCTTGTCTCGCCAGAATGCTGGTCAGCATACGGAAGAGCTCAAGGCAGGTC" into "Template" input
     When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible within "300" seconds
-       
-Scenario: Successful primers design
+    
+Scenario: User can provide DNA template, specify parameters and run primers design
     Given application URL is opened
-    When user enters "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTAGTCGTTTGCTTTCTCGAATTCCGAGCGATTAAGCGTGACAGTCCCAGCGAACCCACAAAACGTGATCGCAGTCCATGCGATCATACGCAAGAAGGAAGGTCCCCATACACCGACGCACCAGTTTACACGCCGTATGCATAAACGAGCTGCACAAACGAGAGTGCTTGAACTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAGTTGCCTTGCCTAGATGCAATGTCGGACGTATTACTTTTGCCTCAACGGCTCCTGCTTTCGCTGAAACCCAAGACAGGCAACAGTAACCGCCTTTTGAAGGCGAGTCCTTCGTCTGTGACTAACTGTGCCAAATCGTCTTCCAAACTCCTAATCCAGTTTAACTCACCAAATTATAGCCATACAGACCCTAATTTCATATCATATCACGCCATTAGCCTCTGCTAAAATTCTGTGCTCAAGGGTTTTGGTTCGCCCGAGTGATGTTGCCAATTAGGACCATCAAATGCACATGTTACAGGACTTCTTATAAATACTTTTTTCCTGGGGAGTAGCGGATCTTAATGGATGTTGCCAGCTGGTATGGAAGCTAATAGCGCCGGTGGGAGCGTAATCTGCCGTCTCCACCAACACAACGCTATCGGGTCATATTATAAGATTCCGCAATGGGGTTACTTATAGGTAGCCTTAACGATATCCGGAACTTGCGATGTACGTGCTATGCTTTAATACATACCTGGCCCAGTAGTTTTCCAATATGGGAACATCAATTGTACATCGGGCCGGGATAATCATGTCATCACGGAAGTAGCCGTAAGACAAATAATTCAAAAGAGATGTCGTTTTGCTAGTTCACGTGAAGGTGTCTCGCGCCACCTCTAAGTAAGTGGGCCGTCGAGACATTATCCCTGATTTTTTCACTACTATTAGTACTCACGGCGCAATACCACCACAGCCTTGTCTCGCCAGAATGCTGGTCAGCATACGGAAGAGCTCAAGGCAGGTC" into "Template" input
-    And user clicks on "Perform specificity check" checkbox
-    And user clicks on "Get primers" button
+    And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTAGTCGTTTGCTTTCTCGAATTCCGAGCGATTAAGCGTGACAGTCCCAGCGAACCCACAAAACGTGATCGCAGTCCATGCGATCATACGCAAGAAGGAAGGTCCCCATACACCGACGCACCAGTTTACACGCCGTATGCATAAACGAGCTGCACAAACGAGAGTGCTTGAACTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAGTTGCCTTGCCTAGATGCAATGTCGGACGTATTACTTTTGCCTCAACGGCTCCTGCTTTCGCTGAAACCCAAGACAGGCAACAGTAACCGCCTTTTGAAGGCGAGTCCTTCGTCTGTGACTAACTGTGCCAAATCGTCTTCCAAACTCCTAATCCAGTTTAACTCACCAAATTATAGCCATACAGACCCTAATTTCATATCATATCACGCCATTAGCCTCTGCTAAAATTCTGTGCTCAAGGGTTTTGGTTCGCCCGAGTGATGTTGCCAATTAGGACCATCAAATGCACATGTTACAGGACTTCTTATAAATACTTTTTTCCTGGGGAGTAGCGGATCTTAATGGATGTTGCCAGCTGGTATGGAAGCTAATAGCGCCGGTGGGAGCGTAATCTGCCGTCTCCACCAACACAACGCTATCGGGTCATATTATAAGATTCCGCAATGGGGTTACTTATAGGTAGCCTTAACGATATCCGGAACTTGCGATGTACGTGCTATGCTTTAATACATACCTGGCCCAGTAGTTTTCCAATATGGGAACATCAATTGTACATCGGGCCGGGATAATCATGTCATCACGGAAGTAGCCGTAAGACAAATAATTCAAAAGAGATGTCGTTTTGCTAGTTCACGTGAAGGTGTCTCGCGCCACCTCTAAGTAAGTGGGCCGTCGAGACATTATCCCTGATTTTTTCACTACTATTAGTACTCACGGCGCAATACCACCACAGCCTTGTCTCGCCAGAATGCTGGTCAGCATACGGAAGAGCTCAAGGCAGGTC" into "Template" input
+    And user entered "20" into "Number of primers to return" input
+    And user entered "50" into "Minimal Melting Temperature of primers" input
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
-    And "Primers design" table should become visible
+    And "Primers design" table should become visible within "300" seconds
     
 Scenario: User can provides template accession number (DNA) and run primers design
     Given application URL is opened
@@ -38,15 +39,15 @@ Scenario: User can provides template accession number (DNA) and run primers desi
     And "Perform specificity check" checkbox is unchecked
     When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
-    And "Primers design" table should become visible
-
+    And "Primers design" table should become visible    
+    
 Scenario: User can provides template accession number (DNA), provide primers and run primers design
     Given application URL is opened
     And user entered "HM061245.1" into "Template" input
+    And user entered "GCCCGGAGATGGATTCTGAG" into "Forward primer" input
+    And user entered "TAAAGTTTTCGCGCCTGCTG" into "Reverse primer" input
     And "Perform specificity check" checkbox is unchecked
-    When user enters "GCCCGGAGATGGATTCTGAG" into "Forward primer" input
-    And user enters "TAAAGTTTTCGCGCCTGCTG" into "Reverse primer" input
-    And user clicks on "Get primers" button
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible    
     
@@ -61,12 +62,12 @@ Scenario: User can provides template accession number (RNA) and run primers desi
 Scenario: User can provides template accession number (RNA), specify exon-exon junction attribute and run primers design
     Given application URL is opened
     And user entered "NM_000018" into "Template" input
+    And user opened "Exon Junction span" dropdown and selected "Primer must span an exon-exon junction" in dropdown menu
+    And user entered "10" into "Min Site overlap by five prime end" input
+    And user entered "3" into "Min Site overlap by three prime end" input
+    And user entered "5" into "Max Site overlap by three prime end" input
     And "Perform specificity check" checkbox is unchecked
-    When user opens "Exon Junction span" dropdown and selects "Primer must span an exon-exon junction" in dropdown menu
-    And user enters "10" into "Min Site overlap by five prime end" input
-    And user enters "3" into "Min Site overlap by three prime end" input
-    And user enters "5" into "Max Site overlap by three prime end" input
-    And user clicks on "Get primers" button
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible
     
@@ -112,8 +113,7 @@ Scenario: Design primers with maximum+1 length (50.001 bps) DNA template
     When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And label "Error" should have "PCR template length (50001) exceeded the limit: 50000. Please use primer range (i.e., forward primer "From" and reverse primer "To") to limit the template length." text
-     
-    
+        
 Scenario: User specifies different settings for finding primers
     Given application URL is opened
     And user entered "ACGTGCCGTTTTACTGCGAATATTACCTGAAGCTGTACCGTTATTGGGGGGCAAAGATGGAGTCCTCCTCTTATCATATTTGTATTGACGACAGCCGTGTTCCCGGTTTCCTCAGAGATTTAAGAATAAGGGCTTATTGTAGGCAGAGGGACGCCCTTTTAGTGGCTGGCGTAAAATATCTTCGGATCCCCTTGTCTAACCAGATTAATCGAATTCTCTCATTTAGGACCCTAGTAAGTCATCATTGGTGTTTAAATGCCACCCCGAAGAAACCGCCTAAAAATGTCTATGATTGGTCCACTAAAGTTGATTAAATCAACTCCTAAATCCGCGCGATAGGGCATTAGAGGTTTAATTTTGTATGGCAAGGTACTCCCGATCTTAATGAATGGCCGGAAGTGGTACGGACGCAATATGCGCGGGTGAGAGGGCAAATAGGCAGGTTCGCCTACGTTACGCTAGGGGGCGATTCTATAAGAATGCACATTGCATCGATACAT" into "Template" input
@@ -131,42 +131,42 @@ Scenario: User specifies different settings for finding primers
     
 Scenario: Primer design with valid sequence and primers
     Given application URL is opened
+    And user entered "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+    And user entered "AGCTAGCTAGCTAGCTAGCTAGCTA" into "Forward primer" input
+    And user entered "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Reverse primer" input  
     And "Perform specificity check" checkbox is unchecked
-    When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
-    And user enters "AGCTAGCTAGCTAGCTAGCTAGCTA" into "Forward primer" input
-    And user enters "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Reverse primer" input
-    And user clicks on "Get primers" button    
+    When user clicks on "Get primers" button    
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible
 
 Scenario: Primer design with valid sequence and invalid primers
     Given application URL is opened
+    And user entered "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+    And user entered "0123456789" into "Forward primer" input
+    And user entered "!@#$%^&*()_+" into "Reverse primer" input
     And "Perform specificity check" checkbox is unchecked
-    When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
-    And user enters "0123456789" into "Forward primer" input
-    And user enters "!@#$%^&*()_+" into "Reverse primer" input
-    And user clicks on "Get primers" button    
+    When user clicks on "Get primers" button    
     Then page title should become "Primer-Blast results"
     And label "Error" should have "Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in left primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence. Ambiguity letters other than N are not allowed in right primer sequence." text
   
            
 Scenario: Primer design with valid sequence and invalid forward primer
     Given application URL is opened
+    And user entered "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+    And user entered "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Forward primer" input
+    And user entered "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Reverse primer" input
     And "Perform specificity check" checkbox is unchecked
-    When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
-    And user enters "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Forward primer" input
-    And user enters "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Reverse primer" input
-    And user clicks on "Get primers" button    
+    When user clicks on "Get primers" button    
     Then page title should become "Primer-Blast results"
     And label "Error" should have "Specified left primer cannot be found in template...make sure this primer is on the plus strand of your template." text
     
 Scenario: Primer design with valid sequence and invalid reverse primer
     Given application URL is opened
+    And user entered "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
+    And user entered "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Forward primer" input
+    And user entered "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Reverse primer" input
     And "Perform specificity check" checkbox is unchecked
-    When user enters "AGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGC" into "Template" input
-    And user enters "GCTAGCTAGCTAGCTAGCTAGCTAGC" into "Forward primer" input
-    And user enters "AAAAAAAAAAAAAAAAAAAAAAAAAA" into "Reverse primer" input
-    And user clicks on "Get primers" button    
+    When user clicks on "Get primers" button    
     Then page title should become "Primer-Blast results"
     And label "Error" should have "Specified right primer cannot be found in template...make sure this primer is on the minus strand of your template." text
 
@@ -174,11 +174,11 @@ Scenario: Primer design with valid primers position range
     Given application URL is opened
     And "Perform specificity check" checkbox is unchecked
     And user entered "AAGATGTCTCGACCGCATGCGCAACTTGTGAAGTGTCTACTATCCCTAAGCCCATTTCTCGCACAATAACCCCTGAATGTGTCCGCATCTGATGTTACCCGGGTTGAGTTAGTGTCGAGCTCGCGGAACTTATTGCATGAGTAGAGATATGTAAGAGCTGTTAGATAGCTCGCTGAGCTAATAGTTGCCCACAGAACGTCAAAATTAGAGAACGGTCGTAACATTATCGGTGGTTCTCTAACTACTATCAGTACCCATGACTCGACTCTGCCGCAGCTACCTATCGCCTGAAAGCCAGTTGGTGTTAAGGAGTGCTCTGTCCAGGACAACACGCGTAGTGAGAGTTACATGTTCGTTGGGTTCTCCCGACTCGGACCTGAGTCGACCAAGGACCCACTCGAGCTCTGAGCCCCACTGTCGAGAAGTATGTATCTCGCTCCCGCAGCTTGCCAGCACTTTCAGTATCATGGGGCCCATGGTTGAATGACTCCTATAACGGA" into "Template" input
-    When user enters "10" into "Forward primer from" input
-    And user enters "100" into "Forward primer to" input
-    And user enters "300" into "Reverse primer from" input
-    And user enters "400" into "Reverse primer to" input
-    And user clicks on "Get primers" button
+    And user entered "10" into "Forward primer from" input
+    And user entered "100" into "Forward primer to" input
+    And user entered "300" into "Reverse primer from" input
+    And user entered "400" into "Reverse primer to" input
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible
     
@@ -186,18 +186,18 @@ Scenario: Primer design with invalid primers position range
     Given application URL is opened
     And "Perform specificity check" checkbox is unchecked
     And user entered "AAGATGTCTCGACCGCATGCGCAACTTGTGAAGTGTCTACTATCCCTAAGCCCATTTCTCGCACAATAACCCCTGAATGTGTCCGCATCTGATGTTACCCGGGTTGAGTTAGTGTCGAGCTCGCGGAACTTATTGCATGAGTAGAGATATGTAAGAGCTGTTAGATAGCTCGCTGAGCTAATAGTTGCCCACAGAACGTCAAAATTAGAGAACGGTCGTAACATTATCGGTGGTTCTCTAACTACTATCAGTACCCATGACTCGACTCTGCCGCAGCTACCTATCGCCTGAAAGCCAGTTGGTGTTAAGGAGTGCTCTGTCCAGGACAACACGCGTAGTGAGAGTTACATGTTCGTTGGGTTCTCCCGACTCGGACCTGAGTCGACCAAGGACCCACTCGAGCTCTGAGCCCCACTGTCGAGAAGTATGTATCTCGCTCCCGCAGCTTGCCAGCACTTTCAGTATCATGGGGCCCATGGTTGAATGACTCCTATAACGGA" into "Template" input
-    When user enters "abc" into "Forward primer from" input
-    And user enters "-1" into "Forward primer to" input
-    And user enters "%^&" into "Reverse primer from" input
-    And user enters "   " into "Reverse primer to" input
-    And user clicks on "Get primers" button
+    And user entered "abc" into "Forward primer from" input
+    And user entered "-1" into "Forward primer to" input
+    And user entered "%^&" into "Reverse primer from" input
+    And user entered "   " into "Reverse primer to" input
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And label "Error" should become visible
     
 Scenario: User can perform Specificity Checking Parameters Successfully 
     Given application URL is opened
     And user entered "AY170325" into "Template" input
-    When user opens "Database" dropdown and selects "Refseq RNA (refseq_rna)" in dropdown menu
-    And user clicks on "Get primers" button
+    And user opened "Database" dropdown and selected "Refseq RNA (refseq_rna)" in dropdown menu
+    When user clicks on "Get primers" button
     Then page title should become "Primer-Blast results"
     And "Primers design" table should become visible within "300" seconds
