@@ -27,6 +27,6 @@ public class LocatorProvider : ILocatorProvider
         }
 
         return selector.XpathSelector != null ? _webContext.Page.Locator(selector.XpathSelector) : 
-            throw new NullReferenceException("Element was not found or web context is null");
+            throw new NullReferenceException("Exception error: No sequence input was provided");
     }
 }
