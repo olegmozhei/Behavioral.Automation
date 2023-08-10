@@ -106,7 +106,6 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 		And user enters "GCATCATTCACATCGAGGCT" into "Forward primer" input
 		And user clicks on "Get primers" button
 		Then "Primers design" table should become visible
-
 	
 	Scenario: Test specify "may not span" exon-exon junction attribute with "Reverse primer" input
 		Given user entered "NM_000200.3" into "Template" input
@@ -115,7 +114,6 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 		And user enters "TGCCCCGTGATTACTGAAGA" into "Reverse primer" input
 		And user clicks on "Get primers" button
 		Then "Primers design" table should become visible
-		
 	
 	Scenario: Test specify "may not span" exon-exon junction attribute with "Forward primer" input and "Reverse primer" input
 		Given user entered "NM_000200.3" into "Template" input
