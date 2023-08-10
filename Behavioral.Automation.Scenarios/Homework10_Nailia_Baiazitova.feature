@@ -4,6 +4,7 @@ DNA sequencing is used to read DNA (A, C, T, G nucleotides)
 PCR is used to amplify little part of DNA (for example, 1000 bps)
   
   
+  
   @req_1
   Scenario: User can run primers design
     Given application URL is opened
