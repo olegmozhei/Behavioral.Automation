@@ -13,13 +13,12 @@ Scenario: Happy path scenario (default settings + PCR template)
 	Then "Primers design" table should become visible
 	
 Scenario: Template input blank
-	Given user entered "1000" into "Forward primer from" input
 	When user clicks on "Perform specificity check" checkbox
 	And user clicks on "Get primers" button
 	Then label "Error" should have "Exception error: No sequence input was provided ." text
 	
 Scenario: Template input contains 1 symbol
-	Given user entered "T" into "Template" input
+	Given user entered "A" into "Template" input
 	When user enters "1000" into "Forward primer from" input
 	And user clicks on "Perform specificity check" checkbox
 	And user clicks on "Get primers" button
