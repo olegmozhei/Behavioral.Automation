@@ -5,7 +5,7 @@ displaying relevant attributes.
 This process enables users to assess the efficacy of their known primers.
 
 	@correct
-	Scenario: User can see attributes for evaluated primers
+	Scenario: User can evaluate primers providing DNA accession number and known primers
 		Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
 		And user entered "NG_017013.2" into "Template" input
 		And user entered "CAGCCACCTGAGTCTGCAAT" into "Forward primer" input
@@ -32,3 +32,4 @@ This process enables users to assess the efficacy of their known primers.
 	  | NG_017013.2         | CAGCCACCTGAGTCTGCAAT | ''                   | 
 	  | NG_123456.7         | TCGATCGATCGATCG      | CGATCGATCGATCGATCGAT | 
 	  | NC_987654.3         | GCTAGCTAGCTAGCTAGCTA | TAGCTAGCTAGCTAGCTAGC | 
+    # 1 - invalid reverse primer, 2 - invalid forward primer, 3 - invalid sequence ID

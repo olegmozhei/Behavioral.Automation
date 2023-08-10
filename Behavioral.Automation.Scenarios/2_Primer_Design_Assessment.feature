@@ -6,8 +6,9 @@ displaying their attributes for user evaluation.
 Clear error notifications show up to users in case of input issues.
     
     
+@requirement_3    
     @DNA_sequence_template
-    Scenario: User can design primers providing DNA template and see attributes and primer pairs
+    Scenario: User can design primers providing DNA template and see their attributes and primer pairs
         Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
         And user entered "GTCAAGCCAGTCACGCAGTAACGTTCATCAGCTAACGTAACAGTTAGAGGCTCGCTAAATCGCACTGTCGGCGTCCCTTGGGTATTTTACGCTAGCATCAGGTAGGCTAGCATGTATCTTTCCTCCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCAAACGTAAATTCTCGGCGTGCTTGGTGTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGACCAAGCGAAAGGCCGCTCTACGGAATGGATTTACGTTACTGCCTGCATAAGGAGACCGGTGTAGCCAAGGACGAAGGCGACCCTAGGTTCTAACCGTCGACTTCGGCGGTAAGGTATCACTCAGGAAGCAGACACTGATAGACACGGTCTAGCAGATCGTTTGACGACTAGGTCAAATTGAGTGGTTTAATATCGGCATGTCTGGCTTTAGAATTCAGTATAGTGCGCTGATCCGAGTCGAATTAAAAACACCAGTACCCAAAACCAGGCGGGCTCGCCACGTCGGCTAATCCTGGTACATTTTGTAAACAATGTTCTGAAGAAAATTTGTGAAAGAAGGACGGGTCATCGCCTACTAATAGCAACAACGATCGGCCGCACCTTCCATTGTCGTGGCGACGCTCGGATTACACGGCAAAGGTGCTTGTGTTCCGACAGGCTAGCATATAATCCTGAGGCGTTACCCCAATCGTTCACCGTCGGATTTGCTACAGCCCCTGAACGCTACATGTACGAAACCATGTTATGTATGCACTAGGCCAACAATAGGACGTAGCCTTGTAGTTAGTACGTAGCCTGGTCGCATAAGTACAGTAGATCCTCCCCGCGCATCCTATTTATTAAGTTAATTCTACAGCAAAACGATCATATGCAGATCCGCAGTGGCCGGTAGACACACGTCCACCCCGCTGCTCTGTGACAGGGACTAAAGAGGCGAAGATTATCGTGTGTGCCCCGTTATGGTCGAGTTCGGTCAGAGCGTCATTGCGAGTAGTCGTTTGCTTTCTCGAATTCCGAGCGATTAAGCGTGACAGTCCCAGCGAACCCACAAAACGTGATCGCAGTCCATGCGATCATACGCAAGAAGGAAGGTCCCCATACACCGACGCACCAGTTTACACGCCGTATGCATAAACGAGCTGCACAAACGAGAGTGCTTGAACTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAGTTGCCTTGCCTAGATGCAATGTCGGACGTATTACTTTTGCCTCAACGGCTCCTGCTTTCGCTGAAACCCAAGACAGGCAACAGTAACCGCCTTTTGAAGGCGAGTCCTTCGTCTGTGACTAACTGTGCCAAATCGTCTTCCAAACTCCTAATCCAGTTTAACTCACCAAATTATAGCCATACAGACCCTAATTTCATATCATATCACGCCATTAGCCTCTGCTAAAATTCTGTGCTCAAGGGTTTTGGTTCGCCCGAGTGATGTTGCCAATTAGGACCATCAAATGCACATGTTACAGGACTTCTTATAAATACTTTTTTCCTGGGGAGTAGCGGATCTTAATGGATGTTGCCAGCTGGTATGGAAGCTAATAGCGCCGGTGGGAGCGTAATCTGCCGTCTCCACCAACACAACGCTATCGGGTCATATTATAAGATTCCGCAATGGGGTTACTTATAGGTAGCCTTAACGATATCCGGAACTTGCGATGTACGTGCTATGCTTTAATACATACCTGGCCCAGTAGTTTTCCAATATGGGAACATCAATTGTACATCGGGCCGGGATAATCATGTCATCACGGAAGTAGCCGTAAGACAAATAATTCAAAAGAGATGTCGTTTTGCTAGTTCACGTGAAGGTGTCTCGCGCCACCTCTAAGTAAGTGGGCCGTCGAGACATTATCCCTGATTTTTTCACTACTATTAGTACTCACGGCGCAATACCACCACAGCCTTGTCTCGCCAGAATGCTGGTCAGCATACGGAAGAGCTCAAGGCAGGTC" into "Template" input
         And user entered "80" into "Forward primer from" input
@@ -25,19 +26,23 @@ Clear error notifications show up to users in case of input issues.
           | GTGCGTGGACAAATGAGCAG | 20     | 60.11 |
           | TGTCGGAACACAAGCACCTT | 20     | 60.11 |
     
-    @RNA_accession_number   
-    Scenario: User can design primers providing RNA template and see attributes and primer pairs
+
+@requirement_5     
+    @RNA_accession_number  
+    Scenario: User can design primers providing RNA accession number and can see their attributes and primer pairs
         Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
         And user entered "NM_000250.2" into "Template" input
-        And user opened "Exon Junction span" dropdown and selected "<Exon junction span option>" in dropdown menu
+        And user opened "Exon Junction span" dropdown and selected "Primer must span an exon-exon junction" in dropdown menu
         And "Perform specificity check" checkbox is unchecked
         When user clicks on "Get primers" button
-        Then "Primers design" table should become visible within "180" seconds             
-    Examples:
-      | Exon junction span option                 |
-      | Primer must span an exon-exon junction    |
-      | Primer may not span an exon-exon junction |
-                 
+        Then "Primers design" table should become visible within "180" seconds
+        And "Primers design" table should have the following rows:
+          | Sequence (5'->3')    | Length | Tm    |
+          | GCTTCTCTCTTCCCTACGGC | 20     | 59.90 |
+          | GTCATTGGGCGGGATCTTGA | 20     | 60.11 |       
+  
+ 
+@requirement_4        
     @error_1        
     Scenario: User can see error notification providing invalid input
         Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
@@ -55,7 +60,6 @@ Clear error notifications show up to users in case of input issues.
            | GGGGGGGTTTTTTTGGGGGTGTGT |
         #is there a way to pass an empty value to the Example table? 
         #'', [blank] and just empty field don't work(  
-
 
     @error_2
     Scenario: User can see error notification providing invalid setting
