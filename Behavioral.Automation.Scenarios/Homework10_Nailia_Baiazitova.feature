@@ -32,6 +32,7 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
        | GTCAAGCCAGTCACGCAGTA | Plus            | 20     | 1     | 20   | 60.32 | 55.00 | 3.00                 | 2.00                    |
        | TGTACCAGGATTAGCCGACG | Minus           | 20     | 526   | 507  | 59.26 | 55.00 | 4.00                 | 3.00                    |
       
+
 @req_3
     Scenario: User see error notification if provided input is invalid 
     Given application URL is opened 
