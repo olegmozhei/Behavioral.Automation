@@ -14,7 +14,6 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
     When user clicks on "Get primers" button
     Then "Primers design" table should become visible
     
-    
     @req_2
     Scenario: User can run primers design providing valid DNA template 
     Given application URL is opened 
