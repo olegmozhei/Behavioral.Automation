@@ -5,7 +5,7 @@ Background:
     Given application URL is opened
 
 @requirement_5
-Scenario: RNA template + exon-exon junction
+Scenario: RNA template + forward primer
     Given user entered "NM_000207.3" into "Template" input
     When user enters "CAGGACAGGCTGCATCAGAA" into "Forward primer" input
     And user opens "Exon junction span" dropdown and selects "Primer must span an exon-exon junction" in dropdown menu
@@ -13,13 +13,29 @@ Scenario: RNA template + exon-exon junction
     And user clicks on "Get primers" button
     Then "Primers design" table should become visible
     
-Scenario: DNA template + reverse primer
+Scenario: RNA template + forward primer (primer may not span) /this TC will take some time/
+    Given user entered "NM_000207.3" into "Template" input
+    When user enters "CAGGACAGGCTGCATCAGAA" into "Forward primer" input
+    And user opens "Exon junction span" dropdown and selects "Primer may not span an exon-exon junction" in dropdown menu
+    And user clicks on "Perform specificity check" checkbox
+    And user clicks on "Get primers" button
+    Then "Primers design" table should become visible
+    
+Scenario: RNA template + reverse primer
     Given user entered "NM_000207.3" into "Template" input
     When user enters "AGAGGGAGCAGATGCTGGTA" into "Reverse primer" input
     And user opens "Exon junction span" dropdown and selects "Primer must span an exon-exon junction" in dropdown menu
     And user clicks on "Perform specificity check" checkbox
     And user clicks on "Get primers" button
     Then "Primers design" table should become visible
+    
+Scenario: RNA template + reverse primer (primer may not span) /this TC will take some time/
+    Given user entered "NM_000207.3" into "Template" input
+    When user enters "AGAGGGAGCAGATGCTGGTA" into "Reverse primer" input
+    And user opens "Exon junction span" dropdown and selects "Primer may not span an exon-exon junction" in dropdown menu
+    And user clicks on "Perform specificity check" checkbox
+    And user clicks on "Get primers" button
+    Then "Primers design" table should become visible  
     
 Scenario: RNA template + exon-exon junction match modified
     Given user entered "NM_000207.3" into "Template" input
