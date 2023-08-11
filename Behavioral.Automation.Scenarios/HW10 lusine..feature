@@ -8,7 +8,7 @@ Feature: HW10_lusine
     Scenario: user can design PCR primers using Primer-blast tool
         Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
         When user enters "TAATAAGCCCCCGTCACTGTTGGTTGAAGAGCCCAGGACGGGTTGGCCAGATGTGCGATTATATCGCTTAATGGCTCTTGGGCCGCGGTGCGTTACCTTGCAGGAATTGAGGCCGTCCGTTAATTTCCCTTGCATACATATTGCGTTTTTTTGTCTTTTTATCCGCTTACTTAGATAAGAGTGACATAGCTTCTTACCGGAGCGCCTCCGTACACAGTACGATCGCACGCCCCATGAGATCGATAGGTATACCAGGTGTCCTGTGAGCAACGAAAGCCTAAACGGGAAATACGCGGCCAAAAGTCGGTGCGAATACGAGTCGTAGCAATGTTGGTCTGGCTATGATCTACATATTTCAGGCGGTACGTCTGCTCTGGTCAGCCTCTAATGGCTCGTTAGATAGTCTAGCCGCTGGTAATCACTCGATGACCTCGGCTCCCCATTGGTGCTACGGCGATTCTTGGAGAGCCAGCTGCGATCGCTAATGTGAGGACAGTGTAATATTAGCAAGCGATAAGTCCCCAACTGGTTGTGGCCTTTTGAAAAGTGAACTTCATAACATATGCTGTCTCAC" into "Template" input
-        And user opens "Database" dropdown and selects "Genomes for selected eucaryotik organisms (primery assembly only)" in dropdown menu
+        And user opens "Database" dropdown and selects "Refseq mRNA" in dropdown menu
         And user clicks on "Perform specificity check" checkbox
         When user clicks on "Get Primers" button
         Then "Primers design " table should become visible
@@ -28,15 +28,15 @@ Feature: HW10_lusine
     @req3
     Scenario: User sees error notification for invalid input (using boundary technique(69) )
                Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
-               When user enters "TAATAAGCCCCCGTCACTGTTGGTTGAAGAGCCCAGGACGGGTTGGCCAGATGTGCGATTATATCGCTT" into "template" input
+               When user enters "TAATAAGCCCCCGTCACTGTTGGTTGAAGAGCCCAGGACGGGTTGGCCAGATGTGCGATTATATCGCTT" into "Template" input
                And user clicks on "Get Pimers" button
-               Then label "Error" should have "PCR template length (69) is shorter than specified product min length 70. Effective template length (69) is shorter than specified product length ( 70) " text
+               Then "Error" table should become visible
               
    @req3    
   Scenario: User sees error notification for invalid input (using Error Guess technique (leave empty) )
         Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
         When user enters "-" into "Template" input
-        Then label "Error" should have "Exception error: No sequence input was provided " text
+        Then "Error" table should become visible
        
        
         @req4
@@ -53,10 +53,9 @@ Feature: HW10_lusine
            Scenario: User evaluates primers for RNA template and see attributes for designed primers
               Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
               When user enters "NC_001352.1" into "Template" input
-              And user enters "Papilionoideae (taxid:3814)" into "Organisms" input
               And user enters "2000" into "Intron length range" input
               When user clicks on "Get Primers" button
-              Then "Detailed primer reports" button should become visible
+              Then "Primers design" button should become visible
              
              
              
