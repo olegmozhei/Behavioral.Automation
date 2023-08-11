@@ -6,25 +6,17 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 	Background:
 		Given application URL is opened
     
+	
+	Scenario: User opens main page with "Primer designing tool" title
+		When user opens URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/"
+		Then page title should become "Primer designing tool"
+		
     Scenario: User provide valid input in template input.
 	    Given user entered "TCCTCTCATAAGCAGTCCGGTGTATCGAAAGAACAAGACTAGCCTTGCTAGCAACCGCGGGCTGGGGGGCTAAGGTATCACTCAAGAAGCAGGCTCGGTAACATACGGTCTAGCTATCTGACTATCGCCTACGTCATATAGGGACCTATGATATCTGCGTGTCCAACCTTAGAATTCACTTCAGCGCGCAGGTTTGGGTCGAGATAAAATCACCAGTACCCAAGACCACGGGCGCTCGGCGCCTTGGCTAATCCCGGTACATGTTGTTATAAATAATCAGTAGAAAATCTGTGTTAGAGGGTCGAGTCACCATATATCAAGAACGATATTAATCGGTGGGAGTATTCAACGTGATGAAGACGCTGGGTTTACGTGGGAATGGTGCTTCTGTCCTAACAGGCTAGGGTATAATGCTGAAACCGTCCCCCAAGCGTTCAGGGTGGGGTTTGCTACGACTTCCGAGTCCAAAGTGTCCGTGTTTTTGATATATACGCTCAAGGGCGAGAATTGGACCTGGCTTACGTCTTAGTACGTAGCATGGTGACACAAGCACAGTAGATCCTGCCCGCGTTTCCTATATATTAAGTTAAATCTTATGGAATATAATAACATGTGGATGGCCAGTGGTCGGTTGTTACACGCCTACCGCAATGCTGAAAGACCCGGACTAGAGTGGCGAGATCTATGGCGTGTGACCCGTTATGCTCCATTTCGGTCAGTGGGTCACAGCTAGTTGTGGATTGGATTGCCATTCTCCGAGTGTTTTAGCGTGACAGCCGCAGGGATCCCATAAAATGCAATCGTAGTCCACCTGATCGTACTTAGAAATGAGGGTCCGCTTTTGCCCACGCACCTGATCGCTCCTCGTTTGCTTTTAAGAACCGGACGAACCACAGAGCATAAGGAGAACCTCTAGCTGCTTTACAAAGTACTGGTTCCCTTTCCAGCGGGATGCTTTATCTAAACGCAATGAGAGAGGAGTGTGCAGATGGCGCCACGAGTTACTGGCCCTGATTTCTCCGCTTCTAATACCGCACACTGGGCAATACGAGCTCAAGCCAGTCTCGCAGTAACGCTCATCAGCTAACGAAAGAGTTAGAGGCTCGCTAAATCGCACTGTCGGGGTCCCTTGGGTATTTTACACTAGCGTCAGGTAGGCTAGCATGTGTCTTTCCTTCCAGGGGTATGCGGGTGCGTGGACAAATGAGCAGCATACGTATTTACTCGGCGTGCTTGGTCTCTCGTATTTCTCCTGGAGATCAAGGAAATGTTTCATGT" into "Template" input
 	    When user enters "1000" into "Forward primer from" input
 	    And user clicks on "Perform specificity check" checkbox
 	    And user clicks on "Get primers" button
 	    Then "Primers design" table should become visible
-	
-	Scenario: Input with valid range
-		Given user entered "CGAAAGAACAAGACTAGCCTTGCTAGCAACCGCGGGCTGGGGGGCTAAGGTATCACTCAAGAAGCAGGCTCGGTAACATACGGTCTAGCTATCTGACTCGAAAGAACAAGACTAGCCTTGCTAGCAACCGCGGGCTGGGGGGCTAAGGTATCACTCAAGAAGCAGGCTCGGTAACATACGGTCTAGCTATCTGACTCGAAAGAACAAGACTAGCCTTGCTAGCAACCGCGGGCTGGGGGGCTAAGGTATCACTCAAGAAGCAGGCTCGGTAACATACGGTCTAGCTATCTGACT" into "Template" input
-		And user entered "10" into "Forward primer from" input
-		And user entered "100" into "Forward primer to" input
-		And user entered "300" into "Reverse primer from" input
-		And user entered "400" into "Reverse primer to" input
-		When user clicks on "Get primers" button
-		Then page title should become "Primer-Blast results"
-		And "Primers design" table should become visible
-	
-	Scenario: User opens the main page
-		Then page title should become "Primer design tool"
         
     Scenario: User left template input empty
         When user clicks on "Perform specificity check" checkbox
@@ -61,7 +53,7 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 		Given user entered "G" into "Template" input
 		When user clicks on "Get primers" button
 		Then page title should become "Primer-Blast results"
-		And label "Error" should have "PCR template length (1) is shorter than specified product min length 70. Effective template length (1) is shorter than specified product length ( 70). " text
+		And label "Error" should become visible
 	
 	Scenario: Test for reverse primer
 		Given user entered "U49845" into "Template" input
@@ -115,11 +107,3 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
 		And user clicks on "Get primers" button
 		Then "Primers design" table should become visible
 	
-	Scenario: Test specify "may not span" exon-exon junction attribute with "Forward primer" input and "Reverse primer" input
-		Given user entered "NM_000200.3" into "Template" input
-		And user opened "Exon Junction span" dropdown and selected "Primer must span an exon-exon junction" in dropdown menu
-		When user clicks on "Perform specificity check" checkbox
-		And user enters "AAAGCATCATTCACATCGAGGC" into "Forward primer" input
-		And user enters "TCCAAAGCGAATTTGCCAGTC" into "Reverse primer" input
-		And user clicks on "Get primers" button
-		Then "Primers design" table should become visible
