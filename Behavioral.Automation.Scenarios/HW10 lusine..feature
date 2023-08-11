@@ -19,18 +19,17 @@ Feature: HW10_lusine
            Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
            When user enters "TAATAAGCCCCCGTCACTGTTGGTTGAAGAGCCCAGGACGGGTTGGCCAGATGTGCGATTATATCGCTTAATGGCTCTTGGGCCGCGGTGCGTTACCTTGCAGGAATTGAGGCCGTCCGTTAATTTCCCTTGCATACATATTGCGTTTTTTTGTCTTTTTATCCGCTTACTTAGATAAGAGTGACATAGCTTCTTACCGGAGCGCCTCCGTACACAGTACGATCGCACGCCCCATGAGATCGATAGGTATACCAGGTGTCCTGTGAGCAACGAAAGCCTAAACGGGAAATACGCGGCCAAAAGTCGGTGCGAATACGAGTCGTAGCAATGTTGGTCTGGCTATGATCTACATATTTCAGGCGGTACGTCTGCTCTGGTCAGCCTCTAATGGCTCGTTAGATAGTCTAGCCGCTGGTAATCACTCGATGACCTCGGCTCCCCATTGGTGCTACGGCGATTCTTGGAGAGCCAGCTGCGATCGCTAATGTGAGGACAGTGTAATATTAGCAAGCGATAAGTCCCCAACTGGTTGTGGCCTTTTGAAAAGTGAACTTCATAACATATGCTGTCTCAC" into "Template" input
            And user enters "30" into "Numbers of primers to return" input
-           And user enters "59" into "Primer melting temperatures" input
-           And user enters "64 " into "Primer melting temperatures" input
+           And user enters "4" into "Max Tm difference" input
            And user enters "2000" into "Intron length range" input
            When user clicks on "Get Primers" button
-           Then "Detailed primer reports " table should become visible
+           Then "Primers design" table should become visible
           
           
     @req3
     Scenario: User sees error notification for invalid input (using boundary technique(69) )
                Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
                When user enters "TAATAAGCCCCCGTCACTGTTGGTTGAAGAGCCCAGGACGGGTTGGCCAGATGTGCGATTATATCGCTT" into "template" input
-               And user clicks on "Get pPimers" button
+               And user clicks on "Get Pimers" button
                Then label "Error" should have "PCR template length (69) is shorter than specified product min length 70. Effective template length (69) is shorter than specified product length ( 70) " text
               
    @req3    
@@ -43,11 +42,11 @@ Feature: HW10_lusine
         @req4
         Scenario: User evaluates primers for DNA template and see attributes for designed primers
            Given URL "https://www.ncbi.nlm.nih.gov/tools/primer-blast/" is opened
-           When user enters "NM_001301717." into "template" input
+           When user enters "NM_001301717." into "Template" input
            And user enters "Primer may not span an axon-exon junction" into "Exon junction span" input
-           And user clicks on "perform specificity check to unchecked" checkbox
-           When user clicks on "get primers" button
-           Then "Detailed primer reports" table should become visible
+           And user clicks on "perform specificity check" checkbox
+           When user clicks on "Get Primers" button
+           Then "Primers design" table should become visible
           
          
            @req5
