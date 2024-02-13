@@ -55,7 +55,8 @@ public class Hooks
     public void Bootstrap()
     {
         _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
-        _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
+        // _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
+        _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
         _objectContainer.RegisterTypeAs<ButtonElement, IButtonElement>();
         _objectContainer.RegisterTypeAs<CheckboxElement, ICheckboxElement>();
         _objectContainer.RegisterTypeAs<TableElement, ITableWrapper>();
