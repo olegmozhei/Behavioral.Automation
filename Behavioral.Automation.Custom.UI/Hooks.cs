@@ -1,11 +1,15 @@
 ﻿using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Interfaces;
 using Behavioral.Automation.Configs;
+using Behavioral.Automation.Interface.Playwright.Services;
 using Behavioral.Automation.Interface.Playwright.WebContextElements;
+using Behavioral.Automation.Interface.Playwright.WebElements;
 using Behavioral.Automation.Pages.Configs;
 using BoDi;
 using Microsoft.Playwright;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using IBrowser = Microsoft.Playwright.IBrowser;
 
 namespace Behavioral.Automation.Custom.UI;
 
@@ -49,8 +53,8 @@ public class Hooks
     [BeforeScenario(Order = 0)]
     public void Bootstrap()
     {
-        //_objectContainer.RegisterTypeAs<FogOsHttpClient, IHttpApiClient>();
-        //_objectContainer.RegisterTypeAs<FogOsHttpService, IHttpService>();
+        _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
+        _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
     }
 
     [BeforeScenario(Order = 1)]

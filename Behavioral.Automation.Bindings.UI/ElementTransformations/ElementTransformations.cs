@@ -14,9 +14,18 @@ public class ElementTransformations
     }
     
     [StepArgumentTransformation]
-    public T GetElement<T>(string caption) where T : class
+    public T GetElement<T>(string caption)
     {
+        Console.WriteLine($"Starting transformation of {caption}");
         var element = _webElementStorageService.Get<T>(caption + " " + typeof(T).Name);
+        return element;
+    }
+    
+    [StepArgumentTransformation]
+    public IInputWebElement GetElement(string caption)
+    {
+        Console.WriteLine($"Starting transformation of {caption}");
+        var element = _webElementStorageService.Get<IInputWebElement>(caption + " " + nameof(IInputWebElement));
         return element;
     }
 }

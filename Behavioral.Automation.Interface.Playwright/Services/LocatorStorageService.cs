@@ -4,7 +4,7 @@ using Behavioral.Automation.Configs.utils;
 
 namespace Behavioral.Automation.Interface.Playwright.Services;
 
-public class LocatorStorageService
+public class LocatorStorageService : IWebElementStorageService
 {
     private readonly WebContext _webContext;
 
