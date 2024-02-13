@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj" />
+      <ProjectReference Include="..\Behavioral.Automation.Configs\Behavioral.Automation.Configs.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+      <PackageReference Include="Microsoft.Playwright" Version="1.22.0" />
+      <PackageReference Include="NUnit" Version="4.0.1" />
+      <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+      <PackageReference Include="SpecFlow" Version="3.9.74" />
+      <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
+      <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+    </ItemGroup>
+
+</Project>

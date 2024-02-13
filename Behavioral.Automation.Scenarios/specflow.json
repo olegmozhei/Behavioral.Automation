@@ -10,7 +10,13 @@
   },
   "stepAssemblies": [
     {
+      "assembly": "Behavioral.Automation.Bindings.UI"
+    },
+    {
       "assembly": "Behavioral.Automation.Playwright"
+    },
+    {
+      "assembly": "Behavioral.Automation.Custom.UI"
     }
   ]
 }
