@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Behavioral.Automation.Pages.Configs;
+namespace Behavioral.Automation.Interface.Playwright.Configs;
 
 public class Config
 {

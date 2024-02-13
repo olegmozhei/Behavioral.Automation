@@ -1,9 +1,7 @@
 ﻿using Behavioral.Automation.Bindings.UI.Interfaces;
-using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Playwright.WebElementsWrappers;
 using Microsoft.Playwright;
 
-namespace Behavioral.Automation.Interface.Playwright.WebElementsWrappers;
+namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class ButtonElement: WebElement, IButtonElement
 {

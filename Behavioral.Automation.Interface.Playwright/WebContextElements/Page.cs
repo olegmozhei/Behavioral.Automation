@@ -1,6 +1,6 @@
 ﻿using Behavioral.Automation.Configs;
+using Behavioral.Automation.Interface.Playwright.Configs;
 using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Pages.Configs;
 using Microsoft.Playwright;
 using IFileChooser = Behavioral.Automation.Bindings.UI.Interfaces.IFileChooser;
 using IPage = Behavioral.Automation.Bindings.UI.Interfaces.IPage;

@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Confi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Scenarios", "Behavioral.Automation.Scenarios\Behavioral.Automation.Scenarios.csproj", "{21639D65-8002-4174-80C8-D1DCDAE728C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral.Automation.Modular", "Behavioral.Automation.Modular", "{36715D30-846C-4450-B9A3-0474F3D78A96}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Bindings.UI", "Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj", "{BCFEAA1B-D176-4901-A587-6C67F991703A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Interface.Playwright", "Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj", "{3E18C99C-7B21-4BC8-BE0D-492EC76545A0}"
@@ -45,11 +43,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BCFEAA1B-D176-4901-A587-6C67F991703A} = {36715D30-846C-4450-B9A3-0474F3D78A96}
-		{3E18C99C-7B21-4BC8-BE0D-492EC76545A0} = {36715D30-846C-4450-B9A3-0474F3D78A96}
-		{06486337-BEDE-4FB9-871D-536AF31DC961} = {36715D30-846C-4450-B9A3-0474F3D78A96}
-		{7460A60F-85B2-4DCE-B190-000503AE8550} = {36715D30-846C-4450-B9A3-0474F3D78A96}
-		{21639D65-8002-4174-80C8-D1DCDAE728C8} = {36715D30-846C-4450-B9A3-0474F3D78A96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724FD185-E1F2-44BD-89EA-DFD1DBF6453A}

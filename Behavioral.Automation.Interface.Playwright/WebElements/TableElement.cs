@@ -1,18 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Behavioral.Automation.Bindings.UI.Interfaces;
-using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Interface.Playwright.WebElementsWrappers;
-using Behavioral.Automation.Playwright.Services.ElementSelectors;
+using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
 using Microsoft.Playwright;
-using Microsoft.VisualBasic;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace Behavioral.Automation.Playwright.WebElementsWrappers;
+namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class TableElement : WebElement, ITableWrapper
 {

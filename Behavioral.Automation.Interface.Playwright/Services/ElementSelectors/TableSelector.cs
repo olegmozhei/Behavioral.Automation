@@ -1,4 +1,4 @@
-﻿namespace Behavioral.Automation.Playwright.Services.ElementSelectors;
+﻿namespace Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
 
 public class TableSelector : ElementSelector
 {

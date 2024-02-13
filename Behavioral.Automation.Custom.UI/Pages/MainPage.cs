@@ -1,10 +1,8 @@
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
+using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
 using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Interface.Playwright.WebElementsWrappers;
 using Behavioral.Automation.Pages.Configs;
-using Behavioral.Automation.Playwright.Services.ElementSelectors;
-using Behavioral.Automation.Playwright.WebElementsWrappers;
 
 namespace Behavioral.Automation.Custom.UI.Pages;
 

@@ -12,4 +12,12 @@
       <ProjectReference Include="..\Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+      <PackageReference Include="NUnit" Version="4.0.1" />
+      <PackageReference Include="SpecFlow" Version="3.9.74" />
+      <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
+      <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+    </ItemGroup>
+
 </Project>
