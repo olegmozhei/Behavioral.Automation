@@ -4,16 +4,23 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Platforms>AnyCPU</Platforms>
+        <PackageId>poc.bdd.playwrightinterface</PackageId>
+        <Version>0.0.2</Version>
+        <Authors>Oleg</Authors>
+        <Product>tas</Product>
+        <Copyright>Quantori Inc.</Copyright>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj" />
       <ProjectReference Include="..\Behavioral.Automation.Configs\Behavioral.Automation.Configs.csproj" />
-      <ProjectReference Include="..\Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+      <PackageReference Include="Microsoft.Playwright" Version="1.22.0" />
       <PackageReference Include="NUnit" Version="3.13.3" />
       <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
       <PackageReference Include="SpecFlow" Version="3.9.74" />

@@ -16,7 +16,10 @@
       "assembly": "Behavioral.Automation.Interface.Playwright"
     },
     {
-      "assembly": "Behavioral.Automation.Custom.UI"
+      "assembly": "NCBI.PrimerBlast.Configurations"
+    },
+    {
+      "assembly": "NCBI.PrimerBlast.Bindings"
     }
   ]
 }

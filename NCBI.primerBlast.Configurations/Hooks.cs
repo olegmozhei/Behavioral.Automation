@@ -4,14 +4,15 @@ using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
 using Behavioral.Automation.Interface.Playwright.WebContextElements;
 using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Pages.Configs;
 using BoDi;
 using Microsoft.Playwright;
+using NCBI.PrimerBlast.Bindings.FixedWebElementlmplementation;
+using NCBI.PrimerBlast.Configurations.Configs;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using IBrowser = Microsoft.Playwright.IBrowser;
 
-namespace Behavioral.Automation.Custom.UI;
+namespace NCBI.PrimerBlast.Configurations;
 
 [Binding]
 public class Hooks
@@ -54,6 +55,7 @@ public class Hooks
     public void Bootstrap()
     {
         _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
+        // _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
         _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
         _objectContainer.RegisterTypeAs<ButtonElement, IButtonElement>();
         _objectContainer.RegisterTypeAs<CheckboxElement, ICheckboxElement>();

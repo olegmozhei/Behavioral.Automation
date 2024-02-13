@@ -16,9 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj" />
-      <ProjectReference Include="..\Behavioral.Automation.Custom.UI\Behavioral.Automation.Custom.UI.csproj" />
-      <ProjectReference Include="..\Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj" />
+      <ProjectReference Include="..\NCBI.primerBlast.Configurations\NCBI.primerBlast.Configurations.csproj" />
     </ItemGroup>
 
     <ItemGroup>

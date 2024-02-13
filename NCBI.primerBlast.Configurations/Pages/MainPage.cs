@@ -2,9 +2,9 @@ using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
 using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
 using Behavioral.Automation.Interface.Playwright.WebElements;
-using Behavioral.Automation.Pages.Configs;
+using NCBI.PrimerBlast.Configurations.Configs;
 
-namespace Behavioral.Automation.Custom.UI.Pages;
+namespace NCBI.PrimerBlast.Configurations.Pages;
 
 class MainPageExample : ISelectorStorage
 {
