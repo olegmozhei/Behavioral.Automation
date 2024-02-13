@@ -17,6 +17,9 @@
     },
     {
       "assembly": "NCBI.PrimerBlast.Configurations"
+    },
+    {
+      "assembly": "NCBI.PrimerBlast.Bindings"
     }
   ]
 }

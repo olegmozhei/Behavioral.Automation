@@ -19,4 +19,8 @@
       <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NCBI.PrimerBlast.Bindings\NCBI.PrimerBlast.Bindings.csproj" />
+    </ItemGroup>
+
 </Project>
