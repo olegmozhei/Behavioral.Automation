@@ -11,6 +11,7 @@
         <Product>tas</Product>
         <Copyright>Quantori Inc.</Copyright>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

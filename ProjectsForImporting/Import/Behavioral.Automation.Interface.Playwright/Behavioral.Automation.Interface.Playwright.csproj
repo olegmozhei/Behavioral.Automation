@@ -4,13 +4,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Platforms>AnyCPU</Platforms>
         <PackageId>poc.bdd.playwrightinterface</PackageId>
         <Version>0.0.1</Version>
         <Authors>Oleg</Authors>
         <Product>tas</Product>
         <Copyright>Quantori Inc.</Copyright>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
