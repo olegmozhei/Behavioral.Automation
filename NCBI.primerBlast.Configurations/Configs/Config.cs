@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Behavioral.Automation.Pages.Configs;
+namespace NCBI.PrimerBlast.Configurations.Configs;
 
 public class Config
 {

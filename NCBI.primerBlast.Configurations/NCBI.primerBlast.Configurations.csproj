@@ -5,18 +5,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Platforms>AnyCPU</Platforms>
-        <RootNamespace>Behavioral.Automation.Custom.UI</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Behavioral.Automation.Configs\Behavioral.Automation.Configs.csproj" />
-      <ProjectReference Include="..\Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
       <PackageReference Include="NUnit" Version="3.13.3" />
       <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+      <PackageReference Include="poc.bdd.bindingsui" Version="0.0.1" />
+      <PackageReference Include="poc.bdd.configs" Version="0.0.1" />
+      <PackageReference Include="poc.bdd.playwrightinterface" Version="0.0.1" />
       <PackageReference Include="SpecFlow" Version="3.9.74" />
       <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
       <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
