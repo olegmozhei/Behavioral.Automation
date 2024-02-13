@@ -12,20 +12,32 @@ public class ElementTransformations
     {
         _webElementStorageService = webElementStorageService;
     }
-    
+
     [StepArgumentTransformation]
-    public T GetElement<T>(string caption)
+    public IInputWebElement GetInputElement(string caption)
     {
-        Console.WriteLine($"Starting transformation of {caption}");
-        var element = _webElementStorageService.Get<T>(caption + " " + typeof(T).Name);
+        var element = _webElementStorageService.Get<IInputWebElement>(caption + "Input");
         return element;
     }
     
     [StepArgumentTransformation]
-    public IInputWebElement GetElement(string caption)
+    public ICheckboxElement GetCheckboxElement(string caption)
     {
-        Console.WriteLine($"Starting transformation of {caption}");
-        var element = _webElementStorageService.Get<IInputWebElement>(caption + " " + nameof(IInputWebElement));
+        var element = _webElementStorageService.Get<ICheckboxElement>(caption + "Checkbox");
+        return element;
+    }
+    
+    [StepArgumentTransformation]
+    public IButtonElement GetButtonElement(string caption)
+    {
+        var element = _webElementStorageService.Get<IButtonElement>(caption + "Button");
+        return element;
+    }
+    
+    [StepArgumentTransformation]
+    public ITableWrapper GetTableElement(string caption)
+    {
+        var element = _webElementStorageService.Get<ITableWrapper>(caption + "Table");
         return element;
     }
 }

@@ -51,4 +51,9 @@ public class Page: IPage
     {
         return Uri.IsWellFormedUriString(url, UriKind.Absolute);
     }
+
+    public Microsoft.Playwright.IPage GetPlaywrightPage()
+    {
+        return _playwrightPage;
+    }
 }

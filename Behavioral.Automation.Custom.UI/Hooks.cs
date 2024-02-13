@@ -55,6 +55,9 @@ public class Hooks
     {
         _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
         _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
+        _objectContainer.RegisterTypeAs<ButtonElement, IButtonElement>();
+        _objectContainer.RegisterTypeAs<CheckboxElement, ICheckboxElement>();
+        _objectContainer.RegisterTypeAs<TableElement, ITableWrapper>();
     }
 
     [BeforeScenario(Order = 1)]
