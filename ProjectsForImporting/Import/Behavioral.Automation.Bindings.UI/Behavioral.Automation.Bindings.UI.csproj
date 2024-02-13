@@ -4,8 +4,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Configurations>Debug;Release;Test;Dev;Prod</Configurations>
-        <Platforms>AnyCPU</Platforms>
+        <Platforms>AnyCPU</Platforms>,
+        <PackageId>poc.bdd.bindingsui</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Oleg</Authors>
+        <Product>tas</Product>
+        <Copyright>Quantori Inc.</Copyright>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,5 +21,7 @@
       <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
       <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
     </ItemGroup>
+    
+    
 
 </Project>

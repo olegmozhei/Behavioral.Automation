@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Bindings.UI", "Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj", "{6B159529-D8B4-4850-80B1-BC76F48FAB79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Configs", "Behavioral.Automation.Configs\Behavioral.Automation.Configs.csproj", "{E8D34A16-A972-4169-BEE3-1FEEC602C828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Interface.Playwright", "Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj", "{D7147150-9384-428F-B42E-FFDB43596C58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B159529-D8B4-4850-80B1-BC76F48FAB79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B159529-D8B4-4850-80B1-BC76F48FAB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B159529-D8B4-4850-80B1-BC76F48FAB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B159529-D8B4-4850-80B1-BC76F48FAB79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D34A16-A972-4169-BEE3-1FEEC602C828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D34A16-A972-4169-BEE3-1FEEC602C828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D34A16-A972-4169-BEE3-1FEEC602C828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D34A16-A972-4169-BEE3-1FEEC602C828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7147150-9384-428F-B42E-FFDB43596C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7147150-9384-428F-B42E-FFDB43596C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7147150-9384-428F-B42E-FFDB43596C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7147150-9384-428F-B42E-FFDB43596C58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
