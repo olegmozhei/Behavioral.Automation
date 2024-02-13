@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Scenarios"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Configurations", "NCBI.PrimerBlast.Configurations\NCBI.PrimerBlast.Configurations.csproj", "{A4386EE4-81E4-4401-9176-D99C6145EB2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.ScenariosLinter", "NCBI.PrimerBlast.ScenariosLinter\NCBI.PrimerBlast.ScenariosLinter.csproj", "{8C97A107-F2A6-4DFC-935E-7A43CDE065C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{A4386EE4-81E4-4401-9176-D99C6145EB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4386EE4-81E4-4401-9176-D99C6145EB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4386EE4-81E4-4401-9176-D99C6145EB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C97A107-F2A6-4DFC-935E-7A43CDE065C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C97A107-F2A6-4DFC-935E-7A43CDE065C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C97A107-F2A6-4DFC-935E-7A43CDE065C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C97A107-F2A6-4DFC-935E-7A43CDE065C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
