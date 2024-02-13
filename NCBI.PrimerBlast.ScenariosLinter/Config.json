@@ -1,0 +1,17 @@
+{
+  "ignore_styling_checks_on_commented_lines" : true,
+  "indentation_on" : 
+    { 
+      "Scenario_tags": 2,
+      "Scenario": 2
+    },
+  "allowed_tags_patterns": ["^Reference:PRIMER-\\d*$", "^(ui|api|auth|sync)_tc:\\d*$", "^Priority:High$", "^Automated:(UI|API)$", "^Manual$", "^Authentication$", "^InProgress$", "^QCData$", "^HaloTagData$", "^LogDData$", "^ALISData$", "^ProdTest$", "^Performance:(API|UI)$", "^Archived$", "^Flaky$", "^ToBeAutomated$", "^Registration$"],
+  "mandatory_tags_patterns": {
+      "Found scenario without mandatory reference tag.": "^Reference:PRIMER-\\d*$"
+  },
+  "ignore_tags_checks_if_there_is_commented_tag" : true,
+  "no_duplicate_tags": true,
+  "use_and_instead_of_repeated_step_names_in_background": true,
+  "ignore_steps_checks_if_there_is_commented_step" : true,
+  "use_and_instead_of_repeated_step_names_in_scenarios": true
+}

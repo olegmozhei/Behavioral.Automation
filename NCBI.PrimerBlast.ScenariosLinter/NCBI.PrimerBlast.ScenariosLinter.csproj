@@ -7,4 +7,14 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Quantori.SpecLinter.FeatureFilesParser" Version="0.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Config.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>
