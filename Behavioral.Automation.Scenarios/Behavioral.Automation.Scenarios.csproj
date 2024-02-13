@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj" />
       <ProjectReference Include="..\Behavioral.Automation.Playwright\Behavioral.Automation.Playwright\Behavioral.Automation.Playwright.csproj" />
     </ItemGroup>
 
