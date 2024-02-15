@@ -54,9 +54,9 @@ public class Hooks
     [BeforeScenario(Order = 0)]
     public void Bootstrap()
     {
-        _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
-        // _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
-        _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
+        _objectContainer.RegisterTypeAs<WebElementStorageService, IWebElementStorageService>();
+        _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
+        // _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
         _objectContainer.RegisterTypeAs<ButtonElement, IButtonElement>();
         _objectContainer.RegisterTypeAs<CheckboxElement, ICheckboxElement>();
         _objectContainer.RegisterTypeAs<TableElement, ITableWrapper>();

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.ScenariosL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Bindings", "NCBI.PrimerBlast.Bindings\NCBI.PrimerBlast.Bindings.csproj", "{4379725E-4B01-499E-B805-C012E107B129}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Interface.Playwright", "Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj", "{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{4379725E-4B01-499E-B805-C012E107B129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4379725E-4B01-499E-B805-C012E107B129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4379725E-4B01-499E-B805-C012E107B129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
