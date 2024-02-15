@@ -1,9 +1,7 @@
-using Behavioral.Automation.Bindings.UI.Interfaces;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
-using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
 using Behavioral.Automation.Interface.Playwright.WebElements;
-using NCBI.PrimerBlast.Bindings.FixedWebElementlmplementation;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using NCBI.PrimerBlast.Configurations.Configs;
 
 namespace NCBI.PrimerBlast.Configurations.Pages;
@@ -13,7 +11,7 @@ class MainPageExample : ISelectorStorage
     private static readonly string Id = ConfigManager.GetConfig<Config>().SearchAttribute;
 
     public WebElement TemplateInput = new InputElement() { Selector = "//textarea[@id='seq']"};
-    public ButtonElement ChooseTemplateFileButton = new ButtonElement() {Selector = "//input[@id='upl']"};
+    public ButtonSelector ChooseTemplateFileButton = new ButtonSelector() {XpathSelector = "//input[@id='upl']"};
     public InputElement ForwardPrimerFromInput = new InputElement() {Selector = "//input[@name='PRIMER5_START']"};
     public InputElement ForwardPrimerToInput = new InputElement() {Selector = "//input[@name='PRIMER5_END']"};
     public InputElement ReversePrimerFromInput = new InputElement() {Selector = "//input[@name='PRIMER3_START']"};
@@ -53,8 +51,8 @@ class MainPageExample : ISelectorStorage
         new InputElement() {Selector = "//*[@name='SPLICE_SITE_OVERLAP_3END_MAX']"};
     
 
-    public ButtonElement GetPrimersButton = new()
-        {Selector = "//form/div[@class='searchInfo ']//input[@value='Get Primers']"};
+    public ButtonSelector GetPrimersButton = new()
+        {XpathSelector = "//form/div[@class='searchInfo ']//input[@value='Get Primers']"};
 
     public DropdownElement DatabaseDropdown = new()
     {
