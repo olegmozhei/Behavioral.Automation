@@ -1,13 +1,17 @@
-using Behavioral.Automation.Bindings.UI.Interfaces;
-using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
+using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Abstractions;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
-public class TableElement : WebElement, ITableWrapper
+public class TableElement : PlaywrightWebElement, ITableWrapper
 {
+    public TableElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    {
+    }
     public string RowsSelector { get; set; }
 
     public ILocator Rows

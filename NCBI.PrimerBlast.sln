@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Bindings",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Interface.Playwright", "Behavioral.Automation.Interface.Playwright\Behavioral.Automation.Interface.Playwright.csproj", "{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Automation.Bindings.UI", "Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj", "{83067576-8444-414F-B78B-FA90234AE6B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE8ABBE3-76F1-4E84-9DEC-D3AA70EDDBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83067576-8444-414F-B78B-FA90234AE6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83067576-8444-414F-B78B-FA90234AE6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83067576-8444-414F-B78B-FA90234AE6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83067576-8444-414F-B78B-FA90234AE6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

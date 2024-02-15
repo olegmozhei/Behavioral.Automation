@@ -4,8 +4,9 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>poc.bdd.playwrightinterface</PackageId>
-        <Version>0.0.2</Version>
+        <Platforms>AnyCPU</Platforms>
+        <PackageId>poc.bdd.bindingsui</PackageId>
+        <Version>0.0.1</Version>
         <Authors>Oleg</Authors>
         <Product>tas</Product>
         <Copyright>Quantori Inc.</Copyright>
@@ -15,17 +16,13 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-      <PackageReference Include="Microsoft.Playwright" Version="1.22.0" />
       <PackageReference Include="NUnit" Version="3.13.3" />
       <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-      <PackageReference Include="poc.bdd.configs" Version="0.0.1" />
       <PackageReference Include="SpecFlow" Version="3.9.74" />
       <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
       <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Behavioral.Automation.Bindings.UI\Behavioral.Automation.Bindings.UI.csproj" />
-    </ItemGroup>
+    
+    
 
 </Project>

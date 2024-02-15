@@ -1,7 +1,8 @@
 ﻿using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Configs;
-using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 
 namespace Behavioral.Automation.Interface.Playwright.Services;

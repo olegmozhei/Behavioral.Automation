@@ -1,5 +1,5 @@
 ﻿using Behavioral.Automation.Bindings.UI;
-using Behavioral.Automation.Bindings.UI.Interfaces;
+using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
 using Behavioral.Automation.Interface.Playwright.WebContextElements;
