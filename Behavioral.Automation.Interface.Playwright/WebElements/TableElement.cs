@@ -3,26 +3,29 @@ using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using TechTalk.SpecFlow;
 
 namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class TableElement : PlaywrightWebElement, ITableWrapper
 {
-    public TableElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    public string HeaderCellsSelector { get; set; }
+    public readonly string RowsSelector;
+    public ElementSelector CellsSelector { get; set; }
+    
+    public TableElement(WebContext webContext, TableSelector selector) : base(webContext, selector.BaseElementSelector)
     {
+        RowsSelector = selector.RowSelector.XpathSelector;
+        HeaderCellsSelector = selector.HeaderCellSelector.XpathSelector;
+        CellsSelector = selector.CellSelector;
     }
-    public string RowsSelector { get; set; }
 
     public ILocator Rows
     {
         get => Locator.Locator(RowsSelector);
         set => throw new NotImplementedException();
     }
-
-    public ElementSelector CellsSelector { get; set; }
-    
-    public string HeaderCellsSelector { get; set; }
 
     public ILocator? HeaderCells {
         get => Locator.Locator(HeaderCellsSelector);

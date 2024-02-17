@@ -7,7 +7,8 @@ namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class ButtonElement: PlaywrightWebElement, IButtonElement
 {
-    public ButtonElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    
+    public ButtonElement(WebContext webContext, ButtonSelector selector) : base(webContext, selector)
     {
     }
 

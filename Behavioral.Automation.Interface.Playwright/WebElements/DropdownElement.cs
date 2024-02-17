@@ -8,9 +8,10 @@ namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class DropdownElement : PlaywrightWebElement, IDropdownElement
 {
-    public DropdownElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    public DropdownElement(WebContext webContext, DropdownSelector selector) : base(webContext, selector.Selector)
     {
     }
+
     public string MenuSelector { get; set; }
     public ILocator Menu => ((Microsoft.Playwright.IPage) WebContext.Page).Locator(MenuSelector);
     public ILocator ItemSelection => Menu.Locator(ItemSelectionSelector);
@@ -81,5 +82,4 @@ public class DropdownElement : PlaywrightWebElement, IDropdownElement
 
         return index;
     }
-    
 }

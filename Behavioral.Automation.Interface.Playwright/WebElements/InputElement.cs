@@ -6,7 +6,7 @@ namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class InputElement: PlaywrightWebElement, IInputWebElement
 {
-    public InputElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    public InputElement(WebContext webContext, InputSelector elementSelector) : base(webContext, elementSelector)
     {
     }
 

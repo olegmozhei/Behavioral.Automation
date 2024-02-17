@@ -7,7 +7,7 @@ namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class LabelElement: PlaywrightWebElement, ILabelElement
 {
-    public LabelElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    public LabelElement(WebContext webContext, LabelSelector elementSelector) : base(webContext, elementSelector)
     {
     }
     

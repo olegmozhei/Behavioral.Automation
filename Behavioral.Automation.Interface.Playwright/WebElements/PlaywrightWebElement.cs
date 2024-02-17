@@ -11,11 +11,11 @@ public abstract class PlaywrightWebElement : IWebElement
     public WebContext WebContext { get; }
     public ElementSelector ElementSelector { get; }
     public string? Description { get; set; }
-    
-    protected PlaywrightWebElement(WebContext webContext, ElementSelector elementSelector)
+
+    protected PlaywrightWebElement(WebContext webContext, ElementSelector baseSelector)
     {
+        ElementSelector = baseSelector;
         WebContext = webContext;
-        ElementSelector = elementSelector;
     }
 
     public ILocator Locator

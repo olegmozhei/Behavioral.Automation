@@ -6,11 +6,14 @@ namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
 public class CheckboxElement : PlaywrightWebElement, ICheckboxElement
 {
-    public CheckboxElement(WebContext webContext, ElementSelector elementSelector) : base(webContext, elementSelector)
+    public CheckboxElement(WebContext webContext, ElementSelector baseSelector) : base(webContext, baseSelector)
     {
     }
+
     public async Task ClickAsync()
     {
         await Locator.EvaluateAsync("node => node.removeAttribute('checked')");
     }
+
+
 }

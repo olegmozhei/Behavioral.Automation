@@ -21,15 +21,30 @@ public class WebElementStorageService : IWebElementStorageService
     //TODO: Impl factory
     public T Get<T>(string elementName)
     {
-        var type = typeof(ISelectorStorage);
-        var types = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(s => s.GetTypes())
-            .Where(p => type.IsAssignableFrom(p) && p.IsClass);
+        var pages = GetAllPagesWithElements();
+        var elementSelector = GetElementSelector(pages, elementName);
+        
+        // Select proper realisation for element according to registered class in DI framework:
+        var classType = IWebElementStorageService.RegisteredImplementations[typeof(T)];
+        var element = (IWebElement) Activator.CreateInstance(classType, _webContext, elementSelector);        
+        element.Description = elementName;
+        return (T) element;
+    }
 
+    private IEnumerable<Type> GetAllPagesWithElements()
+    {
+        var type = typeof(ISelectorStorage);
+        return AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(s => s.GetTypes())
+            .Where(p => type.IsAssignableFrom(p) && p.IsClass); 
+    }
+
+    private ElementSelector GetElementSelector(IEnumerable<Type> pages, string elementName)
+    {
         ElementSelector elementSelector = null;
         var camelCaseElementName = elementName.ToCamelCase();
 
-        foreach (var pageType in types)
+        foreach (var pageType in pages)
         {
             var pageTemp = Activator.CreateInstance(pageType);
             var temp = (ElementSelector) pageType.GetField(camelCaseElementName)?.GetValue(pageTemp)!;
@@ -39,14 +54,6 @@ public class WebElementStorageService : IWebElementStorageService
         }
 
         if (elementSelector == null) throw new Exception($"'{elementName}' transformed to '{camelCaseElementName}' selectors not found.");
-
-        // Select proper realisation for element according to registered class in DI framework:
-        var resolvedObject = _objectContainer.Resolve<T>();
-        var classType = resolvedObject.GetType();
-
-        var element = (IWebElement) Activator.CreateInstance(classType, _webContext, elementSelector);        
-        element.Description = elementName;
-        
-        return (T) element;
+        return elementSelector;
     }
 }

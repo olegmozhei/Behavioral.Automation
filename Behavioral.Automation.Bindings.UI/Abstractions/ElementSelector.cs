@@ -1,6 +1,6 @@
 ﻿namespace Behavioral.Automation.Bindings.UI.Abstractions;
 
-public abstract class ElementSelector
+public class ElementSelector
 {
     public string? IdSelector { get; set; }
     
