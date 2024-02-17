@@ -1,11 +1,10 @@
-﻿using Behavioral.Automation.Bindings.UI.Interfaces;
-using Microsoft.Playwright;
-using IBrowser = Behavioral.Automation.Bindings.UI.Interfaces.IBrowser;
-using IPage = Behavioral.Automation.Bindings.UI.Interfaces.IPage;
+﻿using Microsoft.Playwright;
+using IBrowser = Behavioral.Automation.Bindings.UI.Abstractions.IBrowser;
+using IPage = Behavioral.Automation.Bindings.UI.Abstractions.IPage;
 
 namespace Behavioral.Automation.Interface.Playwright.WebContextElements;
 
-public class Browser : IBrowser
+public class Browser : Bindings.UI.Abstractions.IBrowser
 {
     public readonly Microsoft.Playwright.IBrowserContext browser;
 

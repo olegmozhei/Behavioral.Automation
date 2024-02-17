@@ -1,5 +1,6 @@
 ﻿using Behavioral.Automation.Bindings.UI.Bindings;
 using Behavioral.Automation.Bindings.UI.ElementTransformations;
+using BoDi;
 using TechTalk.SpecFlow;
 
 namespace NCBI.PrimerBlast.Bindings.NewBinding;
@@ -12,15 +13,17 @@ public class NewBinding
     private readonly CheckboxBindings _checkboxBindings;
     private readonly ButtonBindings _buttonBindings;
     private readonly ElementTransformations _elementTransformations;
+    private readonly IObjectContainer _objectContainer;
     
 
-    public NewBinding(NavigationBinding navigationSteps, InputBinding inputSteps, ElementTransformations elementTransformations, ButtonBindings buttonBindings, CheckboxBindings checkboxBindings)
+    public NewBinding(NavigationBinding navigationSteps, InputBinding inputSteps, ElementTransformations elementTransformations, ButtonBindings buttonBindings, CheckboxBindings checkboxBindings, IObjectContainer objectContainer)
     {
         _navigationSteps = navigationSteps;
         _inputSteps = inputSteps;
         _elementTransformations = elementTransformations;
         _buttonBindings = buttonBindings;
         _checkboxBindings = checkboxBindings;
+        _objectContainer = objectContainer;
     }
 
     //Given application URL is opened
@@ -30,7 +33,9 @@ public class NewBinding
     [When(@"user perform PCR design for the following template:")]
     public async Task WhenUserPerformPcrDesignForTheFollowingTemplate(string multilineText)
     {
+        
         await _navigationSteps.GivenApplicationUrlIsOpened();
+        _objectContainer.IsRegistered<InputBinding>();
         await _inputSteps.FillInput(multilineText, _elementTransformations.GetInputElement("Template"));
         await _checkboxBindings.ClickOnCheckbox(
             _elementTransformations.GetCheckboxElement("Perform specificity check"));

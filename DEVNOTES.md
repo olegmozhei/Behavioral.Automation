@@ -29,4 +29,8 @@ You can find documentation [here](https://docs.specflow.org/en/latest/).
 ## Excel Data Reader
 Quantori Behavioral Automation uses Excel Data Reader to interact and check the components of downloaded Excel files.
 
-You can find documentation [here](https://github.com/ExcelDataReader/ExcelDataReader).
+You can find documentation [here](https://github.com/ExcelDataReader/ExcelDataReader).  
+
+## New Version Notes  
+Locator Storage Service acts as Abstract Factory (create instance based on Selector and registered implementations)  
+

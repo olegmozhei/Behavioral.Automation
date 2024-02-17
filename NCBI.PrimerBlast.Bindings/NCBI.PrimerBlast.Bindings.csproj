@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="poc.bdd.bindingsui" Version="0.0.1" />
-      <PackageReference Include="poc.bdd.playwrightinterface" Version="0.0.2" />
+      <PackageReference Include="poc.bdd.bindingsui" Version="0.0.2" />
+      <PackageReference Include="poc.bdd.playwrightinterface" Version="0.0.3" />
     </ItemGroup>
 
 </Project>

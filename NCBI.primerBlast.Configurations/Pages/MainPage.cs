@@ -1,7 +1,7 @@
+using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
-using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
-using Behavioral.Automation.Interface.Playwright.WebElements;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using NCBI.PrimerBlast.Configurations.Configs;
 
 namespace NCBI.PrimerBlast.Configurations.Pages;
@@ -10,68 +10,64 @@ class MainPageExample : ISelectorStorage
 {
     private static readonly string Id = ConfigManager.GetConfig<Config>().SearchAttribute;
 
-    public InputElement TemplateInput = new InputElement() { Selector = "//textarea[@id='seq']"};
-    public ButtonElement ChooseTemplateFileButton = new ButtonElement() {Selector = "//input[@id='upl']"};
-    public InputElement ForwardPrimerFromInput = new InputElement() {Selector = "//input[@name='PRIMER5_START']"};
-    public InputElement ForwardPrimerToInput = new InputElement() {Selector = "//input[@name='PRIMER5_END']"};
-    public InputElement ReversePrimerFromInput = new InputElement() {Selector = "//input[@name='PRIMER3_START']"};
-    public InputElement ReversePrimerToInput = new InputElement() {Selector = "//input[@name='PRIMER3_END']"};
-    public InputElement ForwardPrimerInput = new InputElement() {Selector = "//input[@name='PRIMER_LEFT_INPUT']"};
-    public InputElement ReversePrimerInput = new InputElement() {Selector = "//input[@name='PRIMER_RIGHT_INPUT']"};
+    public InputSelector TemplateInput = new() { XpathSelector = "//textarea[@id='seq']"};
+    public ButtonSelector ChooseTemplateFileButton = new() {XpathSelector = "//input[@id='upl']"};
+    
+    public InputSelector ForwardPrimerFromInput = new() {XpathSelector = "//input[@name='PRIMER5_START']"};
+    public InputSelector ForwardPrimerToInput = new() {XpathSelector = "//input[@name='PRIMER5_END']"};
+    public InputSelector ReversePrimerFromInput = new() {XpathSelector = "//input[@name='PRIMER3_START']"};
+    public InputSelector ReversePrimerToInput = new() {XpathSelector = "//input[@name='PRIMER3_END']"};
+    public InputSelector ForwardPrimerInput = new() {XpathSelector = "//input[@name='PRIMER_LEFT_INPUT']"};
+    public InputSelector ReversePrimerInput = new() {XpathSelector = "//input[@name='PRIMER_RIGHT_INPUT']"};
     
     //primer parameters block:
-    public InputElement MinimalSizeOfPCRProductInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_PRODUCT_MIN']"};
-    public InputElement MaximalSizeOfPCRProductInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_PRODUCT_MAX']"};
-    public InputElement NumberOfPrimersToReturnInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_NUM_RETURN']"};
-    public InputElement MinimalMeltingTemperatureOfPrimersInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_MIN_TM']"};
-    public InputElement OptimalMeltingTemperatureOfPrimersInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_OPT_TM']"};
-    public InputElement MaximalMeltingTemperatureOfPrimersInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_MAX_TM']"};
-    public InputElement MaximalMeltingTemperatureDifferenceInput =
-        new InputElement() {Selector = "//*[@name='PRIMER_MAX_DIFF_TM']"};
+    public InputSelector MinimalSizeOfPCRProductInput = new() {XpathSelector = "//*[@name='PRIMER_PRODUCT_MIN']"};
+    public InputSelector MaximalSizeOfPCRProductInput = new() {XpathSelector = "//*[@name='PRIMER_PRODUCT_MAX']"};
+    public InputSelector NumberOfPrimersToReturnInput = new() {XpathSelector = "//*[@name='PRIMER_NUM_RETURN']"};
+    public InputSelector MinimalMeltingTemperatureOfPrimersInput = new() {XpathSelector = "//*[@name='PRIMER_MIN_TM']"};
+    public InputSelector OptimalMeltingTemperatureOfPrimersInput = new() {XpathSelector = "//*[@name='PRIMER_OPT_TM']"};
+    public InputSelector MaximalMeltingTemperatureOfPrimersInput = new() {XpathSelector = "//*[@name='PRIMER_MAX_TM']"};
+    public InputSelector MaximalMeltingTemperatureDifferenceInput =
+        new() {XpathSelector = "//*[@name='PRIMER_MAX_DIFF_TM']"};
     
-    public DropdownElement ExonJunctionSpanDropdown = new()
+    public DropdownSelector ExonJunctionSpanDropdown = new()
     {
-        Selector = "//select[@name='PRIMER_ON_SPLICE_SITE']",
-        MenuSelector = "//select[@name='PRIMER_ON_SPLICE_SITE']",
-        ItemSelector = "//option",
-        ItemSelectionSelector = "//option"
+        Selector = new ElementSelector {XpathSelector = "//select[@name='PRIMER_ON_SPLICE_SITE']"},
+        MenuSelector = new ElementSelector {XpathSelector = "//select[@name='PRIMER_ON_SPLICE_SITE']"},
+        ItemSelector = new ElementSelector {XpathSelector = "//option"},
+        ItemSelectionSelector = new ElementSelector {XpathSelector = "//option"}
     };
     
-    public InputElement MinSiteOverlapByFivePrimeEndInput =
-        new InputElement() {Selector = "//*[@name='SPLICE_SITE_OVERLAP_5END']"};
-    public InputElement MinSiteOverlapByThreePrimeEndInput =
-        new InputElement() {Selector = "//*[@name='SPLICE_SITE_OVERLAP_3END']"};
-    public InputElement MaxSiteOverlapByThreePrimeEndInput =
-        new InputElement() {Selector = "//*[@name='SPLICE_SITE_OVERLAP_3END_MAX']"};
+    public InputSelector MinSiteOverlapByFivePrimeEndInput =
+        new() {XpathSelector = "//*[@name='SPLICE_SITE_OVERLAP_5END']"};
+    public InputSelector MinSiteOverlapByThreePrimeEndInput =
+        new() {XpathSelector = "//*[@name='SPLICE_SITE_OVERLAP_3END']"};
+    public InputSelector MaxSiteOverlapByThreePrimeEndInput =
+        new() {XpathSelector = "//*[@name='SPLICE_SITE_OVERLAP_3END_MAX']"};
     
 
-    public ButtonElement GetPrimersButton = new()
-        {Selector = "//form/div[@class='searchInfo ']//input[@value='Get Primers']"};
+    public ButtonSelector GetPrimersButton = new()
+        {XpathSelector = "//form/div[@class='searchInfo ']//input[@value='Get Primers']"};
 
-    public DropdownElement DatabaseDropdown = new()
+    public DropdownSelector DatabaseDropdown = new()
     {
-        Selector = "//select[@name='PRIMER_SPECIFICITY_DATABASE']",
-        MenuSelector = "//select[@name='PRIMER_SPECIFICITY_DATABASE']",
-        ItemSelector = "//option",
-        ItemSelectionSelector = "//option"
+        Selector = new ElementSelector {XpathSelector = "//select[@name='PRIMER_SPECIFICITY_DATABASE']"},
+        MenuSelector = new ElementSelector {XpathSelector = "//select[@name='PRIMER_SPECIFICITY_DATABASE']"},
+        ItemSelector = new ElementSelector {XpathSelector = "//option"},
+        ItemSelectionSelector = new ElementSelector {XpathSelector = "//option"}
     };
 
-    public LabelElement ErrorLabel = new LabelElement() {Selector = "//p[@class='error']"};
+    public LabelSelector ErrorLabel = new() {XpathSelector = "//p[@class='error']"};
 
-    public TableElement PrimersDesignTable = new()
+    public TableSelector PrimersDesignTable = new()
     {
-        Selector = "//div[@id='alignInfo']",
-        HeaderCellsSelector = "//div[@class='prPairInfo'][1]//tr[1]/th",
-        RowsSelector = "//tr",
-        CellsSelector = new ElementSelector() {XpathSelector = "/*"}
+        BaseElementSelector = new ElementSelector {XpathSelector = "//div[@id='alignInfo']"},
+        HeaderCellSelector = new ElementSelector {XpathSelector = "//div[@class='prPairInfo'][1]//tr[1]/th"},
+        RowSelector = new ElementSelector {XpathSelector = "//tr" },
+        CellSelector = new ElementSelector {XpathSelector = "/*"}
     };
 
-    public CheckboxElement PerformSpecificityCheckCheckbox =
-        new() {Selector = "//input[@name='SEARCH_SPECIFIC_PRIMER']"};
+    public CheckboxSelector PerformSpecificityCheckCheckbox =
+        new() {XpathSelector = "//input[@name='SEARCH_SPECIFIC_PRIMER']"};
+    
 }

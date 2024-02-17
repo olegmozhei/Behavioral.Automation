@@ -1,5 +1,5 @@
 ﻿using Behavioral.Automation.Bindings.UI;
-using Behavioral.Automation.Bindings.UI.Interfaces;
+using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Services;
 using Behavioral.Automation.Interface.Playwright.WebContextElements;
@@ -33,7 +33,18 @@ public class Hooks
         _scenarioContext = scenarioContext;
     }
 
-    [BeforeTestRun]
+    // Configuration of DI and Factories should be done with order 0
+    [BeforeTestRun(Order = 0)]
+    public static void ConfigureUiImplementations()
+    {
+        IWebElementStorageService.RegisterWebElementImplementationAs<FixedInputElement, IInputWebElement>();
+        // IWebElementStorageService.RegisterWebElementImplementationAs<InputElement, IInputWebElement>();
+        IWebElementStorageService.RegisterWebElementImplementationAs<ButtonElement, IButtonElement>();
+        IWebElementStorageService.RegisterWebElementImplementationAs<CheckboxElement, ICheckboxElement>();
+        IWebElementStorageService.RegisterWebElementImplementationAs<TableElement, ITableWrapper>();
+    }
+
+    [BeforeTestRun(Order = 1)]
     public static async Task InitBrowser()
     {
         var exitCode = Program.Main(new[] { "install" });
@@ -54,12 +65,7 @@ public class Hooks
     [BeforeScenario(Order = 0)]
     public void Bootstrap()
     {
-        _objectContainer.RegisterTypeAs<LocatorStorageService, IWebElementStorageService>();
-        // _objectContainer.RegisterTypeAs<FixedInputElement, IInputWebElement>();
-        _objectContainer.RegisterTypeAs<InputElement, IInputWebElement>();
-        _objectContainer.RegisterTypeAs<ButtonElement, IButtonElement>();
-        _objectContainer.RegisterTypeAs<CheckboxElement, ICheckboxElement>();
-        _objectContainer.RegisterTypeAs<TableElement, ITableWrapper>();
+        _objectContainer.RegisterTypeAs<WebElementStorageService, IWebElementStorageService>();
     }
 
     [BeforeScenario(Order = 1)]
