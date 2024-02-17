@@ -2,12 +2,12 @@
 using Behavioral.Automation.Interface.Playwright.Configs;
 using Behavioral.Automation.Interface.Playwright.WebElements;
 using Microsoft.Playwright;
-using IFileChooser = Behavioral.Automation.Bindings.UI.Interfaces.IFileChooser;
-using IPage = Behavioral.Automation.Bindings.UI.Interfaces.IPage;
+using IFileChooser = Behavioral.Automation.Bindings.UI.Abstractions.IFileChooser;
+using IPage = Behavioral.Automation.Bindings.UI.Abstractions.IPage;
 
 namespace Behavioral.Automation.Interface.Playwright.WebContextElements;
 
-public class Page: IPage
+public class Page: Bindings.UI.Abstractions.IPage
 {
     private readonly Microsoft.Playwright.IPage _playwrightPage;
     

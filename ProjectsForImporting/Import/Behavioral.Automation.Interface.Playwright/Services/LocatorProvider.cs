@@ -1,20 +1,21 @@
 ﻿using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Abstractions;
 using Behavioral.Automation.Configs;
 using Behavioral.Automation.Interface.Playwright.Configs;
-using Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 
 namespace Behavioral.Automation.Interface.Playwright.Services;
 
 public class LocatorProvider : ILocatorProvider
 {
-    private readonly LocatorStorageService _locatorStorageService;
+    private readonly WebElementStorageService _webElementStorageService;
     private readonly WebContext _webContext;
     private readonly string _searchAttribute = ConfigManager.GetConfig<Config>().SearchAttribute;
 
-    public LocatorProvider(LocatorStorageService locatorStorageService, WebContext webContext)
+    public LocatorProvider(WebElementStorageService webElementStorageService, WebContext webContext)
     {
-        _locatorStorageService = locatorStorageService;
+        _webElementStorageService = webElementStorageService;
         _webContext = webContext;
     }
 

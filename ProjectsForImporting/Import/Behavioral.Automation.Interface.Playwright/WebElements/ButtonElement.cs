@@ -1,10 +1,16 @@
-﻿using Behavioral.Automation.Bindings.UI.Interfaces;
+﻿using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Abstractions;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 
 namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
-public class ButtonElement: WebElement, IButtonElement
+public class ButtonElement: PlaywrightWebElement, IButtonElement
 {
+    
+    public ButtonElement(WebContext webContext, ButtonSelector selector) : base(webContext, selector)
+    {
+    }
 
     public async Task ClickAsync()
     {

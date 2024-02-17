@@ -1,11 +1,17 @@
-using Behavioral.Automation.Bindings.UI.Interfaces;
+using Behavioral.Automation.Bindings.UI;
+using Behavioral.Automation.Bindings.UI.Abstractions;
+using Behavioral.Automation.Interface.Playwright.WebElementSelectors;
 using Microsoft.Playwright;
 using NUnit.Framework;
 
 namespace Behavioral.Automation.Interface.Playwright.WebElements;
 
-public class DropdownElement : WebElement, IDropdownElement
+public class DropdownElement : PlaywrightWebElement, IDropdownElement
 {
+    public DropdownElement(WebContext webContext, DropdownSelector selector) : base(webContext, selector.Selector)
+    {
+    }
+
     public string MenuSelector { get; set; }
     public ILocator Menu => ((Microsoft.Playwright.IPage) WebContext.Page).Locator(MenuSelector);
     public ILocator ItemSelection => Menu.Locator(ItemSelectionSelector);

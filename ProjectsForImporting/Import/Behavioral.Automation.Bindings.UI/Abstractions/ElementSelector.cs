@@ -1,4 +1,4 @@
-﻿namespace Behavioral.Automation.Interface.Playwright.Services.ElementSelectors;
+﻿namespace Behavioral.Automation.Bindings.UI.Abstractions;
 
 public class ElementSelector
 {

@@ -1,4 +1,4 @@
-﻿using Behavioral.Automation.Bindings.UI.Interfaces;
+﻿using Behavioral.Automation.Bindings.UI.Abstractions;
 using TechTalk.SpecFlow;
 
 namespace Behavioral.Automation.Bindings.UI.ElementTransformations;
