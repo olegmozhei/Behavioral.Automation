@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>poc.bdd.playwrightinterface</PackageId>
-        <Version>0.0.2</Version>
+        <Version>0.0.3</Version>
         <Authors>Oleg</Authors>
         <Product>tas</Product>
         <Copyright>Quantori Inc.</Copyright>
