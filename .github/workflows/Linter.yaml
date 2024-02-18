@@ -1,1 +1,22 @@
+name: Feature files linnter
 
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  PlaywrightProjectTests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+    - name: Install global tool
+      run: dotnet tool install --global SpecLinterCiRunner --version 0.0.1
+    - name: PR
+      run: |
+        cd ./Behavioral.Automation.Scenarios
+        dotnet test
