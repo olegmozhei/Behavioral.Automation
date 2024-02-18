@@ -15,5 +15,5 @@ jobs:
           dotnet-version: '5.0.x'
       - name: PR
         run: |
-          cd ./Behavioral.Automation.Scenarios
+          cd ./NCBI.PrimerBlast.Scenarios
           dotnet test
