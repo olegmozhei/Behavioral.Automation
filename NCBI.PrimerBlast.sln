@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.ScenariosL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Bindings", "NCBI.PrimerBlast.Bindings\NCBI.PrimerBlast.Bindings.csproj", "{4379725E-4B01-499E-B805-C012E107B129}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCBI.PrimerBlast.Reporting", "NCBI.PrimerBlast.Reporting\NCBI.PrimerBlast.Reporting.csproj", "{1D3C96EA-1998-4DCC-A0FA-F63C68008147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{4379725E-4B01-499E-B805-C012E107B129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4379725E-4B01-499E-B805-C012E107B129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4379725E-4B01-499E-B805-C012E107B129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3C96EA-1998-4DCC-A0FA-F63C68008147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3C96EA-1998-4DCC-A0FA-F63C68008147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3C96EA-1998-4DCC-A0FA-F63C68008147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3C96EA-1998-4DCC-A0FA-F63C68008147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

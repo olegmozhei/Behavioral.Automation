@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NCBI.primerBlast.Configurations\NCBI.primerBlast.Configurations.csproj" />
+      <ProjectReference Include="..\NCBI.PrimerBlast.Reporting\NCBI.PrimerBlast.Reporting.csproj" />
     </ItemGroup>
 
     <ItemGroup>
