@@ -1,4 +1,5 @@
 ﻿using System;
+using NCBI.PrimerBlast.Reporting.models;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Infrastructure;
 
@@ -12,7 +13,12 @@ namespace NCBI.PrimerBlast.Reporting
         public void Handle(ScenarioContext scenarioContext)
         {
             Console.WriteLine("Handle skipped step here");
-            ReportsContainer.Steps.Add(scenarioContext.StepContext.StepInfo.Text);
+            var title = scenarioContext.ScenarioInfo.Title;
+            var arguments = scenarioContext.ScenarioInfo.Arguments;
+            // Update test case information:
+            var testCase = ReportsContainer.GetTestCase(title, arguments);
+            var testStep = new TestStep(scenarioContext.StepContext.StepInfo.Text, "skipped");
+            testCase.AddTestStep(testStep);
         }
     }
 }

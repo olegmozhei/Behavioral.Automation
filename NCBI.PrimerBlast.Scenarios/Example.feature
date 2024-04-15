@@ -16,3 +16,20 @@ PCR is used to amplify little part of DNA (for example, 1000 bps)
     And "Primers design" table should have the following rows:
       | Sequence (5'->3')    | Length | Tm    |
       | ATTATCGTGTGTGCCCCGTT | 20     | 60.04 |
+
+  Scenario Outline: User can run primers design outline
+    Given application URL is opened
+    And user entered "<dna sequence>" into "Template" input
+    And "Perform specificity check" checkbox is unchecked
+    When user clicks on "Get primers" button
+    Then "Primers design" table should become visible within "5" seconds
+    And "Primers design" table should have the following rows:
+      | Sequence (5'->3')    | Length | Tm    |
+      | ATTATCGTGTGTGCCCCGTT | 20     | 60.04 |
+
+    Examples:
+      | dna sequence |
+      | AAAAAAAAAA   |
+      | GGGGGGGGGG   |
+      | CCCCCCCCCC   |
+      | TTTTTTTTTT   |

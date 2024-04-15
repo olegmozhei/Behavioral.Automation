@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using NCBI.PrimerBlast.Reporting;
+using NCBI.PrimerBlast.Reporting.models;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Infrastructure;
 using TechTalk.SpecFlow.Plugins;
@@ -16,16 +18,22 @@ namespace NCBI.PrimerBlast.Reporting
      */
     public class PluginTest : IRuntimePlugin
     {
+        private const bool IsEnabled = true;
+
         public void Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters,
             UnitTestProviderConfiguration unitTestProviderConfiguration)
         {
-            runtimePluginEvents.CustomizeGlobalDependencies += RuntimePluginEventsOnCustomizeGlobalDependencies;
 
-            Console.WriteLine("Starting runtime plugin");
-            runtimePluginEvents.CustomizeScenarioDependencies += (sender, e) =>
+            if (IsEnabled)
             {
-                e.ObjectContainer.RegisterTypeAs<SkippedStepHandler, ISkippedStepHandler>();
-            };
+                runtimePluginEvents.CustomizeGlobalDependencies += RuntimePluginEventsOnCustomizeGlobalDependencies;
+
+                Console.WriteLine("Starting runtime plugin");
+                runtimePluginEvents.CustomizeScenarioDependencies += (sender, e) =>
+                {
+                    e.ObjectContainer.RegisterTypeAs<SkippedStepHandler, ISkippedStepHandler>();
+                };
+            }
         }
 
         private void RuntimePluginEventsOnCustomizeGlobalDependencies(object sender,
@@ -45,8 +53,16 @@ namespace NCBI.PrimerBlast.Reporting
             RuntimePluginAfterTestRunEventArgs e)
         {
             // Create a file to write to.
-            var createText = string.Join("\n", ReportsContainer.Steps);
-            File.WriteAllText("report.txt", createText);
+            // TODO: sort test cases
+
+            var content = "";
+            foreach (var testCase in ReportsContainer.Cases)
+            {
+                content += testCase.title + ":\n";
+                content += string.Join("\n", testCase.steps.Select(step=> step.title + " - " + step.status));
+                content += "\n\n";
+            }
+            File.WriteAllText("report.txt", content);
         }
 
         /*
@@ -56,7 +72,15 @@ namespace NCBI.PrimerBlast.Reporting
             RuntimePluginAfterStepEventArgs e)
         {
             var scenarioContext = e.ObjectContainer.Resolve<ScenarioContext>();
-            ReportsContainer.Steps.Add(scenarioContext.StepContext.StepInfo.Text);
+            // I need to identify test case:
+            var title = scenarioContext.ScenarioInfo.Title;
+            var arguments = scenarioContext.ScenarioInfo.Arguments;
+            var scenarioExecutionStatus = scenarioContext.StepContext.Status;
+            // Update test case information:
+            var testCase = ReportsContainer.GetTestCase(title, arguments);
+            var testStep = new TestStep(scenarioContext.StepContext.StepInfo.Text,
+                (scenarioExecutionStatus != ScenarioExecutionStatus.OK)? "failed": "passed");
+            testCase.AddTestStep(testStep);
         }
     }
 }
